@@ -44,8 +44,11 @@ main{
     background-color: #1c1c1c;
     width: 100vw;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     box-shadow: 0 2px 12px var(--colorTematico); /*editar con modo*/
+    z-index: 1000;
+    position: fixed;
+    height: 10%;
 }
 
 .nav-bar ul{
@@ -84,6 +87,7 @@ main{
 
 .section-consolas{
     width: 100%;
+    height: 30%;
 }
 
 .consolas-icons{
@@ -121,7 +125,7 @@ aside{
 }
 
 .carrito-header{
-    height: 115px;
+    height: 60px;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -228,6 +232,7 @@ td{
     flex-direction: row;
     flex-wrap: wrap;
     padding: 15px;
+    padding-top: 25px;
     justify-content: space-evenly;
 }
 
@@ -300,7 +305,7 @@ td{
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    padding-bottom:100px;
+    padding-bottom: 25px;
 }
 
 .section-video div iframe{
@@ -314,5 +319,41 @@ td{
 .nav-bar img {
     width: 24px;  /* Ajusta el ancho de la imagen */
     height: auto; /* Mantén la proporción de la imagen */
+}
+
+/* hero */
+
+/* Hero section */
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding: 20px;
+    padding-top: 90px;
+    overflow: hidden;
+}
+
+.titulo{
+    width: 100%;
+    padding: 15px;
+    text-align: start;
+}
+
+/* Imagen dentro del hero */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%; /* La imagen no será más ancha que su contenedor */
+    height: 550px;
+    object-fit: cover; /* Asegura que la imagen se recorte y mantenga proporciones si es necesario */
+    border-radius: 10px; /* Opcional, para darle bordes redondeados */
+    transition: opacity 0.5s ease-in-out;
 }
 
