@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <ul>
+            <li><a href="index.html" id="login"><img src="image/home_icon.jpeg" alt=""></a></li>
+            <li><a href="index.html">Not - Steam</a></li>
+        </ul>
+    </div>
+    <main>
+        <form action="">
+            <h2>Bienvenido </h2>
+            <fieldset>
+            <legend>Llena los siguientes campos: </legend>
+            <div class="form_input">
+                <!--el id también funciona para posicionar el cursor -->
+                <label for="nombre">Nombre(s)</label>
+                <input type="text" id="nombre">
+            </div>
+            <div class="form_input">
+                <label for="ap_paterno">Apellido paterno</label>
+                <input type="text" id="ap_paterno">
+            </div>
+            <div class="form_input">
+                <label for="ap_materno">Apellido</label>
+                <input type="text" id="ap_paterno">
+            </div>
+            <div class="form_input">
+                <label for="telefono">Telefono</label>
+                <input type="tel" id="telefono" maxlength="10">
+            </div>
+            <div class="form_input">
+                <label for="email">Email</label>
+                <input type="email" placeholder="my_email14@mail.com" id="email">
+            </div>
+            <div class="form_input">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña">
+            </div>
+            <div>
+                <button class="button" type="submit">Registrar</button>
+            </div>
+            </fieldset>
+
+        </form>
+    </main>
+</body>
+</html>

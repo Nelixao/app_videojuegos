@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not-Steam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <ul>
+            <li><a href="login.html" id="login"><img src="image/login_icon.jpeg" alt=""></a></li>
+            <li><a href="index.html">Not - Steam</a></li>
+        </ul>
+    </div>
+    <main>
+        <section class="section-consolas">
+            <div class="consolas-icons">
+                <a href="#" id="xbox"><img src="image/xbox.jpeg" alt="xbox" class="icon icon-xbox" ></a>
+                <a href="#" id="playstation"><img src="image/playstation.jpeg" alt="playstation" class="icon icon-playstation" ></a>
+                <a href="#" id="nintendo"><img src="image/nintendo.jpeg" alt="nintendo" class="icon icon-nintendo"></a>
+            </div>
+        </section>
+        <section class="section-opciones opcion" id="opciones">
+            <div class="opciones-recomendacion opcion">
+                <div class="recomendacion-header">
+                    <h4>Recomendaciones</h4>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="image/xbox_games/halo.png" alt="">
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Halo 2</h4>
+                        <p class="precio">$349.00</p>
+                        <a class="button agregar-carrito" data-id="3">Añadir al carrito</a>
+                        <a href="#" class="button mostrar-video" data-id="3">Review</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="image/play_games/gow.jpeg" alt="">
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">God of War Ragnarok</h4>
+                        <p class="precio">$499.00</p>
+                        <a class="button agregar-carrito" data-id="7">Añadir al carrito</a>
+                        <a href="#" class="button mostrar-video" data-id="7">Review</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="image/nintendo_games/cup.png" alt="">
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">Cuphead</h4>
+                        <p class="precio">$399.00</p>
+                        <a class="button agregar-carrito" data-id="11">Añadir al carrito</a>
+                        <a href="#" class="button mostrar-video" data-id="11">Review</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <section class="section-video"></section>
+    </main>
+    <aside>
+        <div class="carrito-header">
+            <h4>Carrito</h4>
+        </div>
+        <div class="carrito-table" id="carrito">
+            <table id="lista-carrito">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th id="th-vacio"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total:</th>
+                        <td id="total-carrito" colspan="3"></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <a href="#" class="button" id="vaciar-carrito">Vaciar carrito</a>
+            <a href="index.html" class="button" id="comprar">Comprar</a>
+        </div>
+    </aside>
+    <script src="js/colores.js"></script>
+    <script src="js/carrito_compras.js"></script>
+    <script src="js/reviews.js"></script>
+    <script src="js/mostrar_juegos.js"></script>
+</body>
+</html>

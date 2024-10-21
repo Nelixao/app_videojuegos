@@ -1,0 +1,26 @@
+{
+  "name": "videojuegos_node",
+  "version": "1.0.0",
+  "description": "pagina de videojuegos",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./index.js",
+    "server": "nodemon index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "nodemon",
+    "sql"
+  ],
+  "author": "Erick Baco",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

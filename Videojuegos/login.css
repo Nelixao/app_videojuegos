@@ -1,0 +1,88 @@
+main{
+    width: 100%;
+}
+
+h2{
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    font-weight:normal;
+    font-size: 22px;
+    padding: 10px;
+}
+
+form{
+    background-color: #1c1c1c;
+    padding: 20px 0;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 2px 12px rgb(240, 254, 254);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.form_input{
+    padding: 6px 20px
+}
+
+input, textarea, select{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border: rgb(240, 254, 254) solid;
+    border-radius: 4px;
+    border-width: 1px;
+    background-color: transparent;
+    color: rgb(240, 254, 254);
+}
+
+label{
+    font-size: 0.9em;
+    line-height: 2;
+}
+
+.checkbox{
+    width: auto;
+}
+
+fieldset{
+    margin: 10px 0;
+    border: 1px solid rgb(240, 254, 254);
+    border-radius: 5px;
+    padding: 8px 6px 20px 6px;
+    margin: 20px;
+}
+
+legend{
+    padding: 0 6px;
+    color: rgb(240, 254, 254);
+}
+
+a{
+    color: #69f;
+    text-decoration: none;
+}
+
+.nav-bar img {
+    width: 24px;  /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantén la proporción de la imagen */
+}
+
+.div-registro{
+    margin: auto;
+}
+
+h4{
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    font-weight:normal;
+    padding: 10px;
+}
+
+.button{
+    margin: auto;
+    margin-top: 30px;
+}
+
