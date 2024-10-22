@@ -2,7 +2,8 @@
 
 import express from "express";
 import inicio from "./routes/inicio_router.js";
-import { login } from "./controllers/loginController.js";
+import router_Login from "./routes/login_router.js";
+import router_Registro from "./routes/registro_router.js";
 
 // CONFIGURACIONES PAGINA
 
@@ -23,7 +24,8 @@ app.use(express.static("public"));
 
 // routing -> Ruta por default
 app.use("/", inicio);
-app.use("/", login)
+app.use("/formulario", router_Login)
+app.use("/formulario", router_Registro)
 
 
 // definiendo el puerto -> Puerto de comunicion

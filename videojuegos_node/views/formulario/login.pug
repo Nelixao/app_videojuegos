@@ -1,7 +1,7 @@
 extends ../layout/index2
 
 block content
-    form(action="" method="POST")
+    form(action="" method="POST" noValidate)
         h2 Iniciar sesión
         fieldset
             legend Ingresa tus credenciales:
@@ -12,7 +12,7 @@ block content
                 label(for="contraseña") Contraseña
                 input(type="password" id="contraseña")
             div
-                button.button(type="submit") Entrar
+                a.button(href="/" type="submit") Entrar
     div.div-registro
         h4 Aún no tienes una cuenta. 
-            a(href="/") Regístrate aquí
+            a(href="/formulario/registro") Regístrate aquí
