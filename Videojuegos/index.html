@@ -29,8 +29,8 @@
     <section class="section-consolas">
         <div class="consolas-icons" id="scroll-button">
             <img src="image/xbox.jpeg" alt="xbox" class="icon icon-xbox" id="xbox">
-            <a href="#" id="playstation"><img src="image/playstation.jpeg" alt="playstation" class="icon icon-playstation" ></a>
-            <a href="#" id="nintendo"><img src="image/nintendo.jpeg" alt="nintendo" class="icon icon-nintendo"></a>
+            <img src="image/playstation.jpeg" alt="playstation" class="icon icon-playstation" id="playstation">
+            <img src="image/nintendo.jpeg" alt="nintendo" class="icon icon-nintendo" id="nintendo">
         </div>
     </section>
 
@@ -109,11 +109,6 @@
     <script src="js/carrito_compras.js"></script>
     <script src="js/reviews.js"></script>
     <script src="js/mostrar_juegos.js"></script>
-    <script>
-        document.getElementById('scroll-button').addEventListener('click', function() {
-            const section = document.getElementById('scroll-button');
-            section.scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
+
 </body>
 </html>

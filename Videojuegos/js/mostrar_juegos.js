@@ -29,6 +29,11 @@ function mostrar(section){
 
 function mostrarX(){
     contenedor.innerHTML = ''
+    contenedor.innerHTML = `
+                    <div class="recomendacion-header">
+                        <h4>Xbox: </h4>
+                    </div>
+                `
     opcionesX.forEach(element => {
         contenedor.innerHTML += mostrar(element);
     });
@@ -36,6 +41,11 @@ function mostrarX(){
 
 function mostrarP(){
     contenedor.innerHTML = ''
+    contenedor.innerHTML = `
+    <div class="recomendacion-header">
+        <h4>Play Station: : </h4>
+    </div>
+`
     opcionesP.forEach(element => {
         contenedor.innerHTML += mostrar(element);
     });
@@ -43,6 +53,11 @@ function mostrarP(){
 
 function mostrarN(){
     contenedor.innerHTML = ''
+    contenedor.innerHTML = `
+    <div class="recomendacion-header">
+        <h4>Nintendo: </h4>
+    </div>
+`
     opcionesN.forEach(element => {
         contenedor.innerHTML += mostrar(element);
     });
