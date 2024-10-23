@@ -5,11 +5,25 @@ import inicio from "./routes/inicio_router.js";
 import router_Login from "./routes/login_router.js";
 import router_Registro from "./routes/registro_router.js";
 
+import db from "./config/db.js";
+
 // CONFIGURACIONES PAGINA
 
 
 // Crear la aplicacion 
 const app = express();
+
+//leer formulario
+app.use(express.urlencoded({ extended: true }));
+
+
+try {
+    await db.authenticate();
+    db.sync();
+    console.log("Conexion exitosa a la base de datos");
+} catch (error) {
+    console.log(error);
+}
 
 // Accesos a los datos del formulario
 // Traer datos del formulario
@@ -37,4 +51,4 @@ app.listen(port, () => {
 
 
 // Accesos a los datos del formulario
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
