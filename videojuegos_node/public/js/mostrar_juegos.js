@@ -61,8 +61,8 @@ function cargarJuegosPorConsola(consola) {
                             <div class="card-info">
                                 <h4 class="card-title">${juego.titulo}</h4>
                                 <p class="precio">${juego.precio}</p>
-                                <a href="#" class="button agregar-carrito" data-id="${juego['data-id']}">Añadir al carrito</a>
-                                <a href="#" class="button mostrar-video" data-id="${juego['data-id']}">Review</a>
+                                <a href="#" class="button agregar-carrito" data-id="${juego.data_id}">Añadir al carrito</a>
+                                <a href="#" class="button mostrar-video" data-link="${juego.video_link}">Review</a>
                             </div>
                         </div>
                     `;
