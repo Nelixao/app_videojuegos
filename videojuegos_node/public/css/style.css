@@ -270,14 +270,11 @@ td{
 
 /* Título del card */
 .card-title {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     margin-bottom: 10px; /* Espacio entre el título y el texto */
     color: azure; /* Color del texto */
 }
 
-#doble-renglon{
-    font-size: 1.05rem;
-}
 
 /* ocultar */
 .oculto{

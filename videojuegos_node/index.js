@@ -16,7 +16,6 @@ const app = express();
 //leer formulario
 app.use(express.urlencoded({ extended: true }));
 
-
 try {
     await db.authenticate();
     db.sync();

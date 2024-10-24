@@ -1,5 +1,5 @@
 import express from "express";
-import {inicio} from "../controllers/inicioController.js";
+import {inicio, accionMostrarJuegos} from "../controllers/inicioController.js";
 
 
 
@@ -7,5 +7,8 @@ const router = express.Router();
 
 // Routing
 router.get("/", inicio);
+
+router.get("/:consola", accionMostrarJuegos);
+
 
 export default router
