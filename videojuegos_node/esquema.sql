@@ -5,12 +5,12 @@ USE tienda;
 
 -- Creación de la tabla videojuegos sin id, usando data_id como primary key
 CREATE TABLE videojuegos (
-    data_id                INTEGER(50) NOT NULL,         -- ID para asociar (ahora clave primaria)
+    data_id                INTEGER(50) NOT NULL AUTO_INCREMENT,         -- ID para asociar (ahora clave primaria)
     consola                VARCHAR(50) NOT NULL,         -- Consola (Xbox, PlayStation, Nintendo)
     titulo                 VARCHAR(100) NOT NULL,        -- Título del videojuego
     precio                 DECIMAL(10, 2) NOT NULL,      -- Precio del videojuego
     imagen                 VARCHAR(255) NOT NULL,        -- Ruta de la imagen
-    video_link             VARCHAR(255), NOT NULL,       -- Link del video
+    video_link             VARCHAR(255) NOT NULL,       -- Link del video
     PRIMARY KEY (data_id)                                -- Definir data_id como clave primaria
 ) DEFAULT CHARACTER SET UTF8MB4;
 
