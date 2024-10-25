@@ -1,0 +1,60 @@
+/* layout.css */
+body {
+    width: 100%;
+    background-color: #151414;
+    color: azure;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+main {
+    margin: 0;
+    width: 75%;
+    height: 100%;
+}
+
+aside {
+    width: 25%;
+    padding: 15px 10px 15px 0px;
+}
+
+.section-consolas {
+    width: 100%;
+}
+
+.section-opciones {
+    margin: 10px;
+}
+
+.section-video {
+    width: 80vw;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.section-video div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+.section-video div iframe {
+    margin: auto;
+}
+
+.section-opciones{
+    margin: 10px;
+}
+
+.opcion {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 15px;
+    padding-top: 25px;
+    
+}

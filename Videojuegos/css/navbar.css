@@ -1,0 +1,43 @@
+/* nav-var */
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #111111;
+    width: 100vw;
+    text-align: center;
+    padding: 10px 20px; 
+    box-shadow: 0 2px 6px var(--colorTematico); /*editar con modo*/
+    /* z-index: 1000;
+    position: fixed; */
+    /* height: 10%; */
+}
+
+.nav-bar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+
+.nav-bar ul li {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+
+.nav-bar ul li:nth-child(2) {
+    margin: 0 auto; /* Centra el segundo elemento */
+}
+
+.nav-bar .nav-icon-chico {
+    width: auto;  /* Ajusta el ancho de la imagen */
+    height: 30px; /* Mantén la proporción de la imagen */
+}
+
+.nav-bar .nav-icon-logo{
+    width: auto;  /* Ajusta el ancho de la imagen */
+    height: 35px; /* Mantén la proporción de la imagen */
+}

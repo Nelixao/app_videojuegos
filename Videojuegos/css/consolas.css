@@ -1,0 +1,33 @@
+/* barra de imagenes */
+
+
+.consolas-icons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 50px 10px 50px;
+}
+
+.icon{
+    width: 55px;
+    transition: box-shadow 0.5s ease;
+}
+
+.icon-nintendo{
+    height: 27px;
+    width: auto;
+}
+
+.icon-xbox:hover{
+    filter: drop-shadow( 0 0px 4px var(--colorXbox));
+}
+
+.icon-playstation:hover{
+    filter: drop-shadow( 0 0px 4px var(--colorPlay));
+}
+
+.icon-nintendo:hover{
+    filter: drop-shadow( 0 0px 4px var(--colorNintendo));
+}

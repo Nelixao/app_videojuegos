@@ -47,7 +47,9 @@ function insertarVideo(id){
     console.log(id);
     video.innerHTML = `
         <iframe width=85% height=600px  src=${linkVideos[id]} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <a href="#" id="up" class="button">Volver al inicio</a>
+        <div class="boton-chico">
+            <a href="#" id="up" class="button">Volver al inicio</a>
+        </div>
     `;
     contenedorVideo.appendChild(video); // Insertar el iframe del video
     contenedorVideo.scrollIntoView({ behavior: 'smooth', block: 'start' });

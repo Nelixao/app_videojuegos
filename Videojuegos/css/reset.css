@@ -1,0 +1,33 @@
+:root{
+    /* colores */
+    --colorXbox: rgb(171, 255, 137);
+    --colorPlay: rgb(56, 142, 255);
+    --colorNintendo: rgb(255, 101, 101);
+    --colorTematico: rgb(240, 254, 254);
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    background-color: #151414;
+    color: azure;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+main{
+    margin: 0;
+    width: 75% ;
+    height: 100%;
+}

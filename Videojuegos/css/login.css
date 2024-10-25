@@ -1,21 +1,20 @@
+/* login.css */
 main{
     width: 100%;
 }
 
-h2{
+h2 {
     text-align: center;
     margin: 0;
     margin-bottom: 20px;
-    font-weight:normal;
+    font-weight: normal;
     font-size: 22px;
     padding: 10px;
 }
 
-form{
+form {
     background: linear-gradient(135deg, rgba(94, 94, 94, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
     padding: 20px 0;
     max-width: 600px;
     margin: auto;
@@ -25,11 +24,7 @@ form{
     border-radius: 15px;
 }
 
-.form_input{
-    padding: 6px 20px
-}
-
-input, textarea, select{
+input, textarea, select {
     width: 100%;
     box-sizing: border-box;
     padding: 6px 12px;
@@ -40,16 +35,12 @@ input, textarea, select{
     color: rgb(240, 254, 254);
 }
 
-label{
+label {
     font-size: 0.9em;
     line-height: 2;
 }
 
-.checkbox{
-    width: auto;
-}
-
-fieldset{
+fieldset {
     margin: 10px 0;
     border: 1px solid rgb(240, 254, 254);
     border-radius: 15px;
@@ -57,27 +48,24 @@ fieldset{
     margin: 20px;
 }
 
-legend{
+legend {
     padding: 6px 6px;
     color: rgb(240, 254, 254);
 }
 
-a{
+a {
     color: #69f;
     text-decoration: none;
 }
 
-.div-registro{
+.div-registro {
     margin: auto;
 }
 
-h4{
+h4 {
     text-align: center;
     margin: 0;
     margin-bottom: 20px;
-    font-weight:normal;
+    font-weight: normal;
     padding: 10px;
 }
-
-
-

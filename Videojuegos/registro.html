@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/login.css">
+
 </head>
 <body>
-    <div class="nav-bar">
-        <ul>
-            <li><a href="index.html" id="login"><img src="image/home_icon.jpeg" alt=""></a></li>
-            <li><a href="index.html">Not - Steam</a></li>
-        </ul>
-    </div>
+    <header>
+        <nav>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="index.html" id="login"><img src="image/home_icon.png" alt="login" class="nav-icon-chico"></a></li>
+                    <li><a href="index.html"><img src="image/logo.png" alt="logo quantum" class="nav-icon-logo"></a></li>
+                </ul>
+            </div>
+            <div class="hero"></div>
+        </nav>
+    </header>
     <main>
         <form action="">
             <h2>Bienvenido </h2>
@@ -22,29 +32,33 @@
             <div class="form_input">
                 <!--el id también funciona para posicionar el cursor -->
                 <label for="nombre">Nombre(s)</label>
-                <input type="text" id="nombre">
+                <input type="text" id="nombre" required>
             </div>
             <div class="form_input">
                 <label for="ap_paterno">Apellido paterno</label>
-                <input type="text" id="ap_paterno">
+                <input type="text" id="ap_paterno" required>
             </div>
             <div class="form_input">
                 <label for="ap_materno">Apellido</label>
-                <input type="text" id="ap_paterno">
+                <input type="text" id="ap_paterno" required>
+            </div>
+            <div class="form_input">
+                <label for="email">Email</label>
+                <input type="email" placeholder="my_email14@mail.com" id="email" required>
             </div>
             <div class="form_input">
                 <label for="telefono">Telefono</label>
                 <input type="tel" id="telefono" maxlength="10">
             </div>
             <div class="form_input">
-                <label for="email">Email</label>
-                <input type="email" placeholder="my_email14@mail.com" id="email">
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
             </div>
             <div class="form_input">
                 <label for="contraseña">Contraseña</label>
-                <input type="password" id="contraseña">
+                <input type="password" id="contraseña" required>
             </div>
-            <div>
+            <div class="boton-chico">
                 <a href="index.html" type="submit" class="button">Registrarse</a>
             </div>
             </fieldset>
