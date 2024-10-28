@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./image/logo.jpeg">
+    <title>Quantum CRUD</title>
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="css/consolas.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#crear-videojuego">Crear Videojuego</a></li>
+            <li><a href="#leer-videojuego">Leer Videojuego</a></li>
+            <li><a href="#actualizar-videojuego">Actualizar Videojuego</a></li>
+            <li><a href="#eliminar-videojuego">Eliminar Videojuego</a></li>
+            <li><a href="#ver-pedidos">Ver Pedidos</a></li>
+            <li><a href="#ver-inventario">Ver Inventario</a></li>
+        </ul>
+    </nav>
+
+    <section id="crear-videojuego">
+        <h2>Crear Videojuego</h2>
+        <form action="/crear-videojuego" method="post">
+            <table>
+                <tr>
+                    <td><label for="titulo">Título del Videojuego:</label></td>
+                    <td><input type="text" id="titulo" name="titulo" required></td>
+                </tr>
+                <tr>
+                    <td><label for="plataforma">Plataforma:</label></td>
+                    <td><input type="text" id="plataforma" name="plataforma" required></td>
+                </tr>
+                <tr>
+                    <td><label for="imagen">URL de Imagen:</label></td>
+                    <td><input type="text" id="imagen" name="imagen" required></td>
+                </tr>
+                <tr>
+                    <td><label for="trailer">URL del Trailer:</label></td>
+                    <td><input type="text" id="trailer" name="trailer" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><button type="submit">Crear Videojuego</button></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+
+    <section id="leer-videojuego">
+        <h2>Leer Videojuego</h2>
+        <p>Aquí puedes ver la lista de videojuegos disponibles.</p>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Plataforma</th>
+                    <th>Imagen</th>
+                    <th>Trailer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se deben insertar los videojuegos desde la base de datos -->
+                <tr>
+                    <td>Videojuego 1</td>
+                    <td>PC</td>
+                    <td><a href="imagen1.jpg">Ver Imagen</a></td>
+                    <td><a href="trailer1.mp4">Ver Trailer</a></td>
+                </tr>
+                <tr>
+                    <td>Videojuego 2</td>
+                    <td>PS5</td>
+                    <td><a href="imagen2.jpg">Ver Imagen</a></td>
+                    <td><a href="trailer2.mp4">Ver Trailer</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="actualizar-videojuego">
+        <h2>Actualizar Videojuego</h2>
+        <form action="/actualizar-videojuego" method="post">
+            <table>
+                <tr>
+                    <td><label for="id-videojuego">ID del Videojuego a actualizar:</label></td>
+                    <td><input type="text" id="id-videojuego" name="id-videojuego" required></td>
+                </tr>
+                <tr>
+                    <td><label for="nuevo-titulo">Nuevo Título del Videojuego:</label></td>
+                    <td><input type="text" id="nuevo-titulo" name="nuevo-titulo"></td>
+                </tr>
+                <tr>
+                    <td><label for="nueva-plataforma">Nueva Plataforma:</label></td>
+                    <td><input type="text" id="nueva-plataforma" name="nueva-plataforma"></td>
+                </tr>
+                <tr>
+                    <td><label for="nueva-imagen">Nueva URL de Imagen:</label></td>
+                    <td><input type="text" id="nueva-imagen" name="nueva-imagen"></td>
+                </tr>
+                <tr>
+                    <td><label for="nuevo-trailer">Nueva URL del Trailer:</label></td>
+                    <td><input type="text" id="nuevo-trailer" name="nuevo-trailer"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><button type="submit">Actualizar Videojuego</button></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+
+    <section id="eliminar-videojuego">
+        <h2>Eliminar Videojuego</h2>
+        <form action="/eliminar-videojuego" method="post">
+            <table>
+                <tr>
+                    <td><label for="id-eliminar">ID del Videojuego a eliminar:</label></td>
+                    <td><input type="text" id="id-eliminar" name="id-eliminar" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><button type="submit">Eliminar Videojuego</button></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+
+    <section id="ver-pedidos">
+        <h2>Ver Pedidos</h2>
+        <p>Aquí puedes ver la lista de pedidos realizados.</p>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>ID Usuario</th>
+                    <th>ID Pago</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2024-10-01</td>
+                    <td>500</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2024-10-10</td>
+                    <td>300</td>
+                    <td>1</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="ver-inventario">
+        <h2>Inventario de Videojuegos</h2>
+        <p>Aquí puedes ver el inventario de los videojuegos disponibles.</p>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Videojuego</th>
+                    <th>Título</th>
+                    <th>Plataforma</th>
+                    <th>Stock Disponible</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Videojuego 1</td>
+                    <td>PC</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Videojuego 2</td>
+                    <td>PS5</td>
+                    <td>8</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
