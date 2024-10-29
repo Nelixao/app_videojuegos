@@ -34,10 +34,10 @@
     margin-bottom: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
     padding: 0.3rem;
-    transition: transform 0.4s ease;
+    
 }
 
-.card:hover {
+.card-img:hover {
     transform: translateY(-3px);
 }
 
@@ -46,6 +46,7 @@
     height: 280px;
     overflow: hidden;
     margin-bottom: 15px;
+    transition: transform 0.4s ease;
 }
 
 .card-img img {
