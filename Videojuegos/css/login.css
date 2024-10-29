@@ -1,5 +1,5 @@
 /* login.css */
-main{
+main {
     width: 100%;
 }
 
@@ -24,7 +24,9 @@ form {
     border-radius: 15px;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     width: 100%;
     box-sizing: border-box;
     padding: 6px 12px;

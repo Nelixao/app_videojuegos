@@ -10,22 +10,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const heroImage = document.getElementById("hero-image");
 
     function changeImage() {
-        heroImage.style.opacity = 0; // Desvanecer la imagen actual
+        heroImage.style.opacity = 0;
 
         setTimeout(() => {
-            currentIndex = (currentIndex + 1) % images.length; // Cambia al siguiente índice
-            const newImage = new Image(); // Crea una nueva instancia de imagen
-            newImage.src = images[currentIndex]; // Asigna la nueva imagen al src
+            currentIndex = (currentIndex + 1) % images.length; 
+            const newImage = new Image(); 
+            newImage.src = images[currentIndex]; 
 
-            // Cuando la nueva imagen se haya cargado, se mostrará
+            
             newImage.onload = function () {
-                heroImage.src = newImage.src; // Cambia la imagen actual
-                heroImage.style.opacity = 1; // Vuelve a mostrar la imagen una vez que está cargada
+                heroImage.src = newImage.src; 
+                heroImage.style.opacity = 1; 
             };
-        }, 500); // Espera 500 ms antes de cambiar la imagen
+        }, 500); 
     }
 
     console.log("Iniciando cambio de imágenes...");
-    // Cambiar imagen cada 5 segundos
     setInterval(changeImage, 5000);
 });

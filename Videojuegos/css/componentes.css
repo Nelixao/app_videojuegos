@@ -1,9 +1,9 @@
 .button {
     display: block;
     text-align: center;
-    padding: 10px 20px; /* Espacio interno del botón */
-    margin-top: 10px; /* Espacio arriba del botón */
-    text-decoration: none; /* Elimina el subrayado del enlace */
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
     color: azure;
     border: 1px var(--colorTematico) solid;
     border-radius: 15px;
@@ -12,72 +12,72 @@
     background-color: #1c1c1c;
 }
 
-.button:hover{
+.button:hover {
     background-color: var(--colorTematico);
     color: black;
     border-color: var(--colorTematico);
 }
 
-/* juegos */
-
-
-.recomendacion-header{
+.recomendacion-header {
     width: 100%;
     padding: 15px;
 }
 
-/* Estilos para el card */
-.card {
-    width: 225px;
-    margin-bottom: 15px;
+.estrellas {
+    padding-bottom: 1rem;
+    padding-left: 0.3rem;
 }
 
-/* Imagen del card */
+.card {
+    background-color: #151414;
+    width: 225px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    padding: 0.3rem;
+    transition: transform 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
 .card-img {
-    object-fit: contain; /* Recorta la imagen para que mantenga las proporciones sin deformarse */
+    object-fit: contain;
     height: 280px;
     overflow: hidden;
     margin-bottom: 15px;
 }
 
-.card-img img{
+.card-img img {
     width: 100%;
     border-radius: 15px 15px 0 0;
-    transition: transform 0.4s ease; /* Efecto suave al pasar el mouse */
 }
 
-.card img:hover {
-    transform: translateY(-3px); /* Sutil elevación al hacer hover */
-}
-
-/* Cuerpo del card */
 .card-body {
-    padding: 15px; /* Espacio interno para el contenido */
-    
+    padding: 15px;
+
 }
 
-/* Título del card */
 .card-title {
     font-size: 1.05rem;
-    margin-bottom: 10px; /* Espacio entre el título y el texto */
-    color: azure; /* Color del texto */
+    margin-bottom: 10px;
+    color: azure;
+    padding-left: 0.3rem;
 }
 
-/* Texto descriptivo */
 .precio {
     font-size: 1rem;
     margin-bottom: 20px;
+    padding-left: 0.3rem;
 }
 
-/* video */
-
-.section-video{
+.section-video {
     width: 80vw;
     padding: 20px;
     border-radius: 5px;
 }
 
-.section-video div{
+.section-video div {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -85,11 +85,11 @@
     padding-bottom: 25px;
 }
 
-.section-video div iframe{
+.section-video div iframe {
     margin: auto;
 }
 
-.boton-chico{
+.boton-chico {
     width: 50%;
     margin: auto;
     margin-top: 50px;

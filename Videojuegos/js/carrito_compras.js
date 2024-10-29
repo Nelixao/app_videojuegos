@@ -1,21 +1,18 @@
 const carrito = document.querySelector('#carrito');
-const contenedorCarrito = document.querySelector('#lista-carrito tbody'); //id en la tabla
-const vaciarCarritoB = document.querySelector('#vaciar-carrito'); //id en el boton vaciar carrito
-const listaLibros = document.querySelector('#opciones') //div que contiene los libros
+const contenedorCarrito = document.querySelector('#lista-carrito tbody');
+const vaciarCarritoB = document.querySelector('#vaciar-carrito');
+const listaLibros = document.querySelector('#opciones')
 const contenedorTotal = document.querySelector('#total-carrito')
 let itemsCarrito = []
 let totalCarrito = 0
 
 registrarListener();
 
-function registrarListener(){
-    // Escuchar el evento de click para agregar libro
+function registrarListener() {
     listaLibros.addEventListener('click', agregarLibro);
 
-    // Eliminar libro
-    carrito.addEventListener('click', eliminarLibro); // corregido el typo
+    carrito.addEventListener('click', eliminarLibro);
 
-    // Vaciar carrito
     vaciarCarritoB.addEventListener('click', () => {
         itemsCarrito = [];
         totalCarrito = 0
@@ -23,54 +20,45 @@ function registrarListener(){
     });
 }
 
-// Eliminar libro
-function eliminarLibro(evt){
+function eliminarLibro(evt) {
     evt.preventDefault();
-    if(evt.target.classList.contains('borrar-curso')){
+    if (evt.target.classList.contains('borrar-curso')) {
         const libroId = evt.target.getAttribute('data-id');
         const libroAEliminar = itemsCarrito.find(libro => libro.id === libroId);
-        
+
         if (libroAEliminar) {
-            // Convertir el precio a número y eliminar el símbolo de $
             let precio = libroAEliminar.precio.replace('$', '');
             totalCarrito = totalCarrito - (parseFloat(precio) * libroAEliminar.cantidad);
-            
-            // Eliminar libro del carrito
             itemsCarrito = itemsCarrito.filter(libro => libro.id != libroId);
-            
-            // Actualizar el HTML
             HtmlCarrito();
         }
     }
 }
 
-
-// Leer el contenido del libro
-function leerLibro(libro){
+function leerLibro(libro) {
     const libroInfo = {
         imagen: libro.querySelector("img").src,
         nombre: libro.querySelector("h4").textContent,
         precio: libro.querySelector("p").textContent,
-        id: libro.querySelector("a").getAttribute("data-id"), // corregido typo
+        id: libro.querySelector("a").getAttribute("data-id"),
         cantidad: 1,
     };
 
     const existe = itemsCarrito.some(libro => libro.id === libroInfo.id);
 
-    if(existe){
+    if (existe) {
         const items = itemsCarrito.map(libro => {
-            if(libro.id === libroInfo.id){
+            if (libro.id === libroInfo.id) {
                 libro.cantidad++;
-                return libro; // actualiza
+                return libro;
             } else {
-                return libro; // sin duplicados
+                return libro;
             }
         });
         itemsCarrito = [...items];
     } else {
         itemsCarrito = [...itemsCarrito, libroInfo];
     }
-    // Hacemos una copia y lo agregamos al carrito
 
     let precio = libroInfo['precio'].replace('$', '');
     totalCarrito = totalCarrito + parseFloat(precio);
@@ -79,21 +67,18 @@ function leerLibro(libro){
     HtmlCarrito();
 }
 
-// Agregar libro al carrito
-function agregarLibro(evt){
+function agregarLibro(evt) {
     evt.preventDefault();
-    if(evt.target.classList.contains('agregar-carrito')){
+    if (evt.target.classList.contains('agregar-carrito')) {
         const libroSeleccionado = evt.target.parentElement.parentElement;
         leerLibro(libroSeleccionado);
     }
 }
 
-// Mostrar el carrito de compra en HTML
-function HtmlCarrito(){
-    // Limpiar HTML previo
+function HtmlCarrito() {
     limpiarHTML();
     itemsCarrito.forEach(libros => {
-        const {imagen, nombre, precio, cantidad, id} = libros;
+        const { imagen, nombre, precio, cantidad, id } = libros;
         const fila = document.createElement('tr');
         fila.innerHTML = `
             <td class="td-img"><img src="${imagen}" width="75px"></td>
@@ -106,9 +91,8 @@ function HtmlCarrito(){
     contenedorTotal.innerText = `$${totalCarrito}`
 }
 
-// Limpiar el HTML del carrito
-function limpiarHTML(){
-    while(contenedorCarrito.firstChild){
+function limpiarHTML() {
+    while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
 }
