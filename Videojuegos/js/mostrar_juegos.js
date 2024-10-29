@@ -53,25 +53,25 @@ function mostrarN(){
 
 opcionesX = [
     {
-        "image": "image/xbox_games/ciber.png",
+        "image": "image/xbox_games/ciber.jpg",
         "title": "Cyberpunk 2077",
         "price": "$499.00",
         "data-id": "1"
     },
     {
-        "image": "image/xbox_games/gears.jpeg",
+        "image": "image/xbox_games/gears.jpg",
         "title": "Gears of War 3",
         "price": "$399.00",
         "data-id": "2"
     },
     {
-        "image": "image/xbox_games/halo.png",
+        "image": "image/xbox_games/halo.jpg",
         "title": "Halo 2",
         "price": "$299.00",
         "data-id": "3"
     },
     {
-        "image": "image/xbox_games/injustice.png",
+        "image": "image/xbox_games/injustice.jpg",
         "title": "Injustice 2",
         "price": "$399.00",
         "data-id": "4"
@@ -95,7 +95,25 @@ opcionesX = [
         "data-id": "16"
     },
     {
-        "image": "image/xbox_games/red.jpeg",
+        "image": "image/xbox_games/doomxbox-removebg-preview.png",
+        "title": "DOOM ETERNAL",
+        "price": "$499.00",
+        "data-id": "17"
+    },
+    {
+        "image": "image/xbox_games/forzaxbox-removebg-preview.png",
+        "title": "Forza Horizon 5",
+        "price": "$499.00",
+        "data-id": "5"
+    },
+    {
+        "image": "image/xbox_games/hellbladexbox.jpg",
+        "title": "Hellblade",
+        "price": "$499.00",
+        "data-id": "16"
+    },
+    {
+        "image": "image/xbox_games/red.jpg",
         "title": "Red Dead Redemption 2",
         "price": "$499.00",
         "data-id": "18"
@@ -104,31 +122,31 @@ opcionesX = [
 
 opcionesP = [
     {
-        "image": "image/play_games/elden.png",
+        "image": "image/play_games/elden.jpg",
         "title": "Elden Ring",
         "price": "$499.00",
         "data-id": "6"
     },
     {
-        "image": "image/play_games/gow.jpeg",
+        "image": "image/play_games/gow.jpg",
         "title": "God of War Ragnarok",
         "price": "$499.00",
         "data-id": "7"
     },
     {
-        "image": "image/play_games/gta.png",
+        "image": "image/play_games/gta.jpg",
         "title": "GTA V",
         "price": "$499.00",
         "data-id": "8"
     },
     {
-        "image": "image/play_games/residnet.png",
+        "image": "image/play_games/resident.jpg",
         "title": "Resident Evil 4",
         "price": "$499.00",
         "data-id": "9"
     },
     {
-        "image": "image/play_games/tlou.png",
+        "image": "image/play_games/tlou.jpg",
         "title": "The Last of Us 2",
         "price": "$499.00",
         "data-id": "10"
