@@ -19,7 +19,7 @@ function mostrar(section){
         </div>
         <div class="card-info">
             <h4 class="card-title">${section.title}</h4>
-            <img src="image/estrellas.png" alt="estrellas" class="estrellas">
+            <img src="image/icons/estrellas.png" alt="estrellas" class="estrellas">
             <p class="precio">${section.price}</p>
             <a class="button agregar-carrito" data-id="${section['data-id']}">Añadir al carrito</a>
             <a href="#" class="button mostrar-video" data-id="${section['data-id']}">Review</a>
