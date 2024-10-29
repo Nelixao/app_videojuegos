@@ -1,18 +1,23 @@
-extends ../layout/index2
+extends ../layout/index2.pug
 
 block content
-    form(action="" method="POST" noValidate)
-        h2 Iniciar sesión
-        fieldset
-            legend Ingresa tus credenciales:
-            div.form_input
-                label(for="nombre") Nombre(s)
-                input(type="text" id="nombre")
-            div.form_input
-                label(for="contraseña") Contraseña
-                input(type="password" id="contraseña")
-            div
-                a.button(href="/" type="submit") Entrar
-    div.div-registro
-        h4 Aún no tienes una cuenta. 
-            a(href="/formulario/registro") Regístrate aquí
+    main
+        form(action="")
+            h2 Iniciar sesión
+            fieldset
+                legend Ingresa tus credenciales:
+                
+                div.form_input
+                    label(for="nombre") Nombre(s)
+                    input(type="text" id="nombre")
+                
+                div.form_input
+                    label(for="contraseña") Contraseña
+                    input(type="password" id="contraseña")
+                
+                div.boton-chico
+                    a.button(href="../index.html" type="submit") Entrar
+
+        div.div-registro
+            h4 Aún no tienes una cuenta.
+                a.registrarte(href="registro.html") Regístrate aquí

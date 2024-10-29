@@ -1,15 +1,20 @@
-extends ./layout/index
+extends ./layout/index.pug
 
 block content
-    main
-        section.section-consolas
-            div.consolas-icons
-                img(src="/image/xbox.jpeg", alt="xbox", class="icon icon-xbox", id="xbox")
-                img(src="/image/playstation.jpeg", alt="playstation", class="icon icon-playstation", id="playstation")
-                img(src="/image/nintendo.jpeg", alt="nintendo", class="icon icon-nintendo", id="nintendo")
 
-        section.section-opciones.opcion(id="opciones")
-            include ./opciones/recomendaciones
+    section.section-consolas
+            div.consolas-icons
+                img(src="/image/logos/xbox.png", alt="xbox", class="icon icon-xbox", id="xbox")
+                img(src="/image/logos/playstation.png", alt="playstation", class="icon icon-playstation", id="playstation")
+                img(src="/image/logos/nintendo.webp", alt="nintendo", class="icon icon-nintendo", id="nintendo")
+
+    main
+        div.recomendacion-header
+            h4 Recomendaciones:
+        section.section-opciones
+            
+            
+            
 
 
         section.section-video

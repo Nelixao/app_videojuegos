@@ -1,0 +1,40 @@
+/* nav-var */
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #111111;
+    width: 100vw;
+    text-align: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 6px var(--colorTematico);
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+
+.nav-bar ul li {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+
+.nav-bar ul li:nth-child(2) {
+    margin: 0 auto;
+}
+
+.nav-bar .nav-icon-chico {
+    width: auto;
+    height: 30px;
+}
+
+.nav-bar .nav-icon-logo {
+    width: auto;
+    height: 35px;
+}

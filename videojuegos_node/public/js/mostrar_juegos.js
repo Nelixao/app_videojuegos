@@ -1,56 +1,10 @@
-// const botonX = document.querySelector('#xbox');
-// const botonP = document.querySelector('#playstation')
-// const botonN = document.querySelector('#nintendo')
-// const sectionX = document.querySelector('.opciones-xbox')
-// const sectionP = document.querySelector('.opciones-play')
-// const sectionN = document.querySelector('.opciones-nintendo')
-// const recomendacion = document.querySelector('.opciones-recomendacion')
-
-// registrarListener()
-
-// function registrarListener(){
-//     botonX.addEventListener('click', mostrarX)
-//     botonP.addEventListener('click', mostrarP)
-//     botonN.addEventListener('click', mostrarN)
-// }
-
-// function mostrar(section){
-//     if(section.classList.contains('oculto')){
-//         section.classList.remove('oculto')
-//     }
-// }
-
-// function ocultar(sections){
-//     sections.forEach(sect => {
-//         if(!(sect.classList.contains('oculto'))){
-//             sect.classList.add('oculto')
-//         }
-//     });
-
-// }
-
-// function mostrarX(){
-//     mostrar(sectionX)
-//     ocultar([sectionP,sectionN,recomendacion])
-// }
-
-// function mostrarP(){
-//     mostrar(sectionP)
-//     ocultar([sectionX,sectionN,recomendacion])
-// }
-
-// function mostrarN(){
-//     mostrar(sectionN)
-//     ocultar([sectionP,sectionX,recomendacion])
-// }
-
 // Función para hacer la solicitud AJAX y obtener los videojuegos de una consola
-function cargarJuegosPorConsola(consola) {
-    fetch(`/${consola}`)  // Llama a la ruta del backend
-        .then(response => response.json())
-        .then(data => {
-            const contenedor = document.querySelector('.section-opciones');
-            contenedor.innerHTML = '';  // Limpiar el contenedor
+function borrar(){
+    const contenedor = document.querySelector('.recomendacion-header');
+    contenedor.innerHTML = '';  // Limpiar el contenedor
+}
+function construir(data, contenedor){
+
             if (data.length > 0) {
                 data.forEach(juego => {
                     contenedor.innerHTML += `
@@ -60,7 +14,8 @@ function cargarJuegosPorConsola(consola) {
                             </div>
                             <div class="card-info">
                                 <h4 class="card-title">${juego.titulo}</h4>
-                                <p class="precio">${juego.precio}</p>
+                                <img src="image/icons/estrellas.png" alt="estrellas" class="estrellas>
+                                <p class="precio">$ ${juego.precio}</p>
                                 <a href="#" class="button agregar-carrito" data-id="${juego.data_id}">Añadir al carrito</a>
                                 <a href="#" class="button mostrar-video" data-link="${juego.video_link}">Review</a>
                             </div>
@@ -70,11 +25,41 @@ function cargarJuegosPorConsola(consola) {
             } else {
                 contenedor.innerHTML = `<p>No hay videojuegos disponibles para esta consola.</p>`;
             }
+}
+
+function cargarJuegosPorConsola(consola) {
+    fetch(`/consola/${consola}`)  // Llama a la ruta del backend
+        .then(response => response.json())
+        .then(data => {
+            borrar()
+            const contenedor = document.querySelector('.section-opciones');
+            contenedor.innerHTML = '';  // Limpiar el contenedor
+            construir(data, contenedor)
         })
         .catch(error => console.error('Error:', error));
 }
+
+function cargarJuegosPorID(id) {
+    fetch(`/predeterminado/${id}`)  // Llama a la ruta del backend
+        .then(response => response.json())
+        .then(data => {
+            const contenedor = document.querySelector('.section-opciones');
+            const primerosTres = data.slice(0, 3);  // Selecciona solo los primeros 3 elementos
+            construir(primerosTres, contenedor);
+        })
+        .catch(error => console.error('Error:', error));
+}
+
 
 // Escuchar los eventos de clic en los botones de consola
 document.querySelector('#xbox').addEventListener('click', () => cargarJuegosPorConsola('Xbox'));
 document.querySelector('#playstation').addEventListener('click', () => cargarJuegosPorConsola('PlayStation'));
 document.querySelector('#nintendo').addEventListener('click', () => cargarJuegosPorConsola('Nintendo'));
+
+document.addEventListener("DOMContentLoaded", () => {
+    const numeroAleatorio = Math.floor(Math.random() * 12) + 1;
+    cargarJuegosPorID(numeroAleatorio);  // Llama a la función con el número aleatorio
+});
+
+
+

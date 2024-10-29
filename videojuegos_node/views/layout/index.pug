@@ -4,9 +4,15 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title Not-Steam
-        link(rel="stylesheet", href="/css/style.css")
+        link(rel="stylesheet" href="css/carrito.css")
+        link(rel="stylesheet" href="css/componentes.css")
+        link(rel="stylesheet" href="css/consolas.css")
+        link(rel="stylesheet" href="css/reset.css")
+        link(rel="stylesheet" href="css/layout.css")
+        link(rel="stylesheet" href="css/navbar.css")
     body
-        include nav
+        header
+            include nav
         block content
         include aside
         script(src="/js/colores.js")

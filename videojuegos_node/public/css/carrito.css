@@ -1,0 +1,85 @@
+/* carrito de compras */
+aside {
+    width: 25%;
+    padding: 15px 10px 15px 0px;
+}
+
+.carrito-header {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    
+}
+
+.carrito-header h4 {
+    text-align: center;
+    font-size: 1.5rem;
+    border: 1px solid var(--colorTematico);
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #1c1c1c;
+
+}
+
+
+.carrito-table table {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--colorTematico);
+    background-color: #151414;
+}
+
+.carrito-table tbody {
+    display: block;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.carrito-table thead,
+.carrito-table tfoot {
+    display: table;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+
+    background: linear-gradient(135deg, rgba(94, 94, 94, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.carrito-table tbody tr {
+    display: table;
+    width: 100%;
+}
+
+td {
+    text-align: center;
+    text-wrap: pretty;
+    text-align: center;
+    font-size: 0.8rem;
+    width: 78px;
+    padding: 3px;
+
+}
+
+.td-img {
+    padding: 0;
+    display: flex;
+    align-content: center;
+}
+
+.carrito-table thead tr th {
+    width: 78px;
+}
+
+#td-borrar,
+#th-vacio {
+    width: 30px;
+}
+
+
+#x {
+    margin: 5px;
+    padding: 5px;
+}
