@@ -14,7 +14,7 @@ function construir(data, contenedor){
                             </div>
                             <div class="card-info">
                                 <h4 class="card-title">${juego.titulo}</h4>
-                                <img src="image/icons/estrellas.png" alt="estrellas" class="estrellas>
+                                <img src="image/icons/estrellas.png" alt="estrellas" class="estrellas">
                                 <p class="precio">$ ${juego.precio}</p>
                                 <a href="#" class="button agregar-carrito" data-id="${juego.data_id}">Añadir al carrito</a>
                                 <a href="#" class="button mostrar-video" data-link="${juego.video_link}">Review</a>
@@ -28,6 +28,7 @@ function construir(data, contenedor){
 }
 
 function cargarJuegosPorConsola(consola) {
+    
     fetch(`/consola/${consola}`)  // Llama a la ruta del backend
         .then(response => response.json())
         .then(data => {
