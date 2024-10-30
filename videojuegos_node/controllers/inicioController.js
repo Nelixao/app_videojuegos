@@ -16,11 +16,11 @@ async function consulta(condicion, valores = []) {
 }
 
 const accionMostrarPredeterminados = async (req, res) => {
-    const condicion = `data_id % ? = 0`;
+    const condicion = `data_id >= ? AND data_id < (? + 3)`;
     const valores = [req.params.id];  // Usa el valor de id de forma segura como parámetro
 
     try {
-        const juegos = await consulta(condicion, valores);
+        const juegos = await consulta(condicion, [valores, valores]);
         res.json(juegos);  // Devuelve los videojuegos en formato JSON
         console.log(juegos);
     } catch (error) {

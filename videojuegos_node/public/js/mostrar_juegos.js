@@ -44,8 +44,8 @@ function cargarJuegosPorID(id) {
         .then(response => response.json())
         .then(data => {
             const contenedor = document.querySelector('.section-opciones');
-            const primerosTres = data.slice(0, 3);  // Selecciona solo los primeros 3 elementos
-            construir(primerosTres, contenedor);
+            //const primerosTres = data.slice(0, 3);  // Selecciona solo los primeros 3 elementos
+            construir(data, contenedor);
         })
         .catch(error => console.error('Error:', error));
 }
@@ -57,7 +57,7 @@ document.querySelector('#playstation').addEventListener('click', () => cargarJue
 document.querySelector('#nintendo').addEventListener('click', () => cargarJuegosPorConsola('Nintendo'));
 
 document.addEventListener("DOMContentLoaded", () => {
-    const numeroAleatorio = Math.floor(Math.random() * 12) + 1;
+    const numeroAleatorio = Math.floor(Math.random() * 13) + 1;
     cargarJuegosPorID(numeroAleatorio);  // Llama a la función con el número aleatorio
 });
 
