@@ -20,7 +20,11 @@ export const videojuego = db.define(
             type: Sequelize.STRING,
         }
     },
-    {timestamps: false}
+    {
+        timestamps: false,
+        freezeTableName: true
+    },
+    
 );
 
 

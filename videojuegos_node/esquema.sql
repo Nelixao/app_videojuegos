@@ -69,13 +69,14 @@ CREATE TABLE videojuego(
     PRIMARY KEY(id_videojuego)
 );
 
-CREATE TABLE videojuego_plataforma(
+CREATE TABLE videojuego_plataformas(
     id_plataforma	INT,
     id_videojuego	INT,
     stock       	INT,
     costo       	INT,
     precio      	INT,
     
+    PRIMARY KEY (id_plataforma, id_videojuego),
     FOREIGN KEY(id_plataforma) REFERENCES plataforma(id_plataforma),
     FOREIGN KEY(id_videojuego) REFERENCES videojuego(id_videojuego)
 );
@@ -137,7 +138,7 @@ VALUES
 #videojuego_plataforma
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Xbox
-INSERT INTO videojuego_plataforma (id_videojuego, id_plataforma, costo, precio, stock)
+INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
 VALUES 
 ((SELECT id_videojuego FROM videojuego WHERE titulo = 'Cyberpunk 2077'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 450.00, 499.00, 100),
 ((SELECT id_videojuego FROM videojuego WHERE titulo = 'Gears of War 3'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
@@ -146,7 +147,7 @@ VALUES
 ((SELECT id_videojuego FROM videojuego WHERE titulo = 'Red Dead Redemption 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 450.00, 499.00, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para PlayStation
-INSERT INTO videojuego_plataforma (id_videojuego, id_plataforma, costo, precio, stock)
+INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
 VALUES 
 ((SELECT id_videojuego FROM videojuego WHERE titulo = 'Elden Ring'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
 ((SELECT id_videojuego FROM videojuego WHERE titulo = 'God of War Ragnarok'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
@@ -155,7 +156,7 @@ VALUES
 ((SELECT id_videojuego FROM videojuego WHERE titulo = 'The Last of Us 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Nintendo
-INSERT INTO videojuego_plataforma (id_videojuego, id_plataforma, costo, precio, stock)
+INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
 VALUES 
 ((SELECT id_videojuego FROM videojuego WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
 ((SELECT id_videojuego FROM videojuego WHERE titulo = 'Mario Bros'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),

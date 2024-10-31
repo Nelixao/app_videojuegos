@@ -7,12 +7,17 @@ export const plataforma = db.define(
     "plataforma",{
         id_plataforma: {
             type: Sequelize.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
         },
         nombre: {
             type: Sequelize.STRING,
         }
     },
-    {timestamps: false}
+    {
+        timestamps: false,
+        freezeTableName: true
+    }
 );
 
 
