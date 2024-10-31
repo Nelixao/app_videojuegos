@@ -1,9 +1,10 @@
 import express from "express"
-import {registro} from "../controllers/registroController.js";
+import {registro, registroUsuario} from "../controllers/registroController.js";
 
 
 const router_Registro = express.Router();
 
-router_Registro.get('/registro', registro)
+router_Registro.get('/', registro)
+router_Registro.post('/register', registroUsuario)
 
 export default router_Registro
