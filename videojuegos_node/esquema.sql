@@ -13,7 +13,7 @@ CREATE TABLE roles(
     PRIMARY KEY(id_rol)
 );
 
-CREATE TABLE usuario(
+CREATE TABLE usuarios(
     id_usuario      INT NOT NULL AUTO_INCREMENT,
     nombre          varchar(50) NOT NULL,
     ap_materno      varchar(50) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE usuario(
     correo          varchar(50) NOT NULL,
     telefono        varchar(50) NOT NULL,
     username        varchar(50) NOT NULL,
-    pass			varchar(50) NOT NULL,
+    pass			varchar(200) NOT NULL,
     id_rol			INT NOT NULL,	
 
     PRIMARY KEY(id_usuario),
@@ -36,7 +36,7 @@ CREATE TABLE pago(
     id_usuario				INT NOT NULL,
 
     PRIMARY KEY(id_pago),
-    FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario)
+    FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario)
 );
 
 
@@ -48,7 +48,7 @@ CREATE TABLE pedido (
     id_pago		INT,	
 
     PRIMARY KEY(id_pedido),
-    FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario),
+    FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
     FOREIGN KEY(id_pago) REFERENCES pago(id_pago)
 );
 
@@ -104,16 +104,6 @@ INSERT INTO plataforma(nombre) VALUES
 ("PlayStation"),
 ("Nintendo");
 
-# USUARIO
-INSERT INTO usuario (nombre, ap_materno, ap_paterno, correo, telefono, username, pass, id_rol) VALUES
-('Juan', 'Pérez', 'García', 'juan.perez@gmail.com', '5551234567', 'juanp', 'password1', 1),
-('María', 'López', 'Hernández', 'maria.lopez@yahoo.com', '5552345678', 'mlopez', 'password2', 1),
-('Carlos', 'Sánchez', 'Martínez', 'carlos.sanchez@hotmail.com', '5553456789', 'carloss', 'password3', 1),
-('Ana', 'Gómez', 'Jiménez', 'ana.gomez@outlook.com', '5554567890', 'anag', 'password4', 1),
-('Luis', 'Ramírez', 'Flores', 'luis.ramirez@gmail.com', '5555678901', 'luisrf', 'password5', 1),
-('Elena', 'Torres', 'Reyes', 'elena.torres@yahoo.com', '5556789012', 'elenat', 'password6', 1),
-('Javier', 'Morales', 'Cruz', 'javier.morales@hotmail.com', '5557890123', 'javierm', 'password7', 1),
-('Sofía', 'Vásquez', 'Salinas', 'sofia.vasquez@outlook.com', '5558901234', 'sofiav', 'password8', 2);
 
 
 #VIDEOJUEGO

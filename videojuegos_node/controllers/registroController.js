@@ -1,46 +1,89 @@
+import Usuario from "../model/usuario.js";
+import { check, validationResult } from "express-validator";
 // Hashing the password (Encriptamiento) -> bcryptjs
 import bcryptjs from "bcryptjs";
-import db from "../config/db.js";
-
 
 const registro = async (req, res) => {
     res.render("formulario/registro")
 };
 
-const registroUsuario = async (req, res) => {
 
+const registrando = async (req, res) => {
 
-    const nombre = req.body.nombre;
-    const ap_paterno = req.body.ap_paterno;
-    const ap_materno = req.body.ap_materno;
-    const correo = req.body.correo;
-    const telefono = req.body.telefono;
-    const username = req.body.username;
-    const pass = req.body.pass;
-    const id_rol = req.body.id_rol;
-    let passwordHaash = await bcryptjs.hash(pass, 8);
+    const password = req.body.pass;
+    const passwordHaash = await bcryptjs.hash(password, 8);
 
-    db.query("INSERT INTO usuario SET ?", 
-        {nombre:nombre, 
-        ap_materno:ap_materno,
-        ap_paterno:ap_paterno,
-        correo:correo,
-        telefono:telefono,
-        username:username,
-        pass:passwordHaash,
-        id_rol:id_rol}, 
-        
-        async(error, results)=>{
-            if(error){
-                console.log(error);
-            }else{  
-                res.send('ALTA EXITOSA')
-            }
-        })
+    let valido = await validacionFormulario(req);
+
+    if (!valido.isEmpty()) {
+    return res.render("credenciales/registrar", {
+    pagina: "Alta Usuario",
+    errores: valido.array(),
+    });
+
 }
+
+
+
+const usuario = await Usuario.create({
+    nombre: req.body.nombre,
+    ap_paterno: req.body.ap_paterno,
+    ap_materno:req.body.ap_materno,
+    correo:req.body.correo,
+    telefono:req.body.telefono,
+    username:req.body.username,
+    pass:passwordHaash,
+    id_rol:req.body.id_rol
+});
+    await usuario.save();
+    //mostrar mensaje de confirmacions
+    res.render("credenciales/confirmacion", {
+    pagina: "Usuario se registro exitosamente",
+    });
+    };
+    
+    async function validacionFormulario(req) {
+    await check("nombre")
+    .notEmpty()
+    .withMessage("Nombre no debe ser vacio")
+    .run(req);
+
+    await check("ap_paterno")
+    .notEmpty()
+    .withMessage("Apellido Paterno no debe ser vacio")
+    .run(req);
+
+    await check("ap_materno")
+    .notEmpty()
+    .withMessage("Apellido Materno no debe ser vacio")
+    .run(req);
+
+    await check("telefono")
+    .notEmpty()
+    .withMessage("Telefono no debe ser vacio")
+    .run(req);
+
+    await check("username")
+    .notEmpty()
+    .withMessage("Usuario no debe ser vacio")
+    .run(req);
+
+    await check("pass")
+    .notEmpty()
+    .withMessage("Password no debe ser vacio")
+    .run(req);
+
+    await check("correo")
+    .notEmpty()
+    .withMessage("Correo no debe ser vacio")
+    .run(req);
+    let salida = validationResult(req);
+    return salida;
+}
+
 
 // Esportaciones de funciones
 export{
     registro,
-    registroUsuario
+    registrando
 };
