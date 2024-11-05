@@ -1,6 +1,7 @@
 .button {
     display: block;
     text-align: center;
+    margin: auto;
     padding: 10px 20px;
     margin-top: 10px;
     text-decoration: none;
