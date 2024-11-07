@@ -13,7 +13,7 @@ CREATE TABLE roles(
     PRIMARY KEY(id_rol)
 );
 
-CREATE TABLE usuario(
+CREATE TABLE usuarios(
     id_usuario      INT NOT NULL AUTO_INCREMENT,
     nombre          varchar(50) NOT NULL,
     ap_materno      varchar(50) NOT NULL,
@@ -21,6 +21,7 @@ CREATE TABLE usuario(
     correo          varchar(50) NOT NULL,
     telefono        varchar(50) NOT NULL,
     username        varchar(50) NOT NULL,
+    pass			varchar(200) NOT NULL,
     id_rol			INT NOT NULL,	
 
     PRIMARY KEY(id_usuario),
@@ -35,7 +36,7 @@ CREATE TABLE pago(
     id_usuario				INT NOT NULL,
 
     PRIMARY KEY(id_pago),
-    FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario)
+    FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario)
 );
 
 
@@ -46,8 +47,13 @@ CREATE TABLE pedidos (
     id_usuario	INT,
     id_pago		INT,	
 
+<<<<<<< HEAD
     PRIMARY KEY(id_pedidos),
     FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario),
+=======
+    PRIMARY KEY(id_pedido),
+    FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
+>>>>>>> 4a2402ebab24398edce9069436771a6d4c4e27dd
     FOREIGN KEY(id_pago) REFERENCES pago(id_pago)
 );
 
@@ -69,15 +75,27 @@ CREATE TABLE videojuegos(
     PRIMARY KEY(id_videojuegos)
 );
 
+<<<<<<< HEAD
 CREATE TABLE videojuegos_plataformas(
     id_plataformas	INT,
     id_videojuegos	INT,
+=======
+CREATE TABLE videojuego_plataformas(
+    id_plataforma	INT,
+    id_videojuego	INT,
+>>>>>>> 4a2402ebab24398edce9069436771a6d4c4e27dd
     stock       	INT,
     costo       	INT,
     precio      	INT,
     
+<<<<<<< HEAD
     FOREIGN KEY(id_plataformas) REFERENCES plataformas(id_plataformas),
     FOREIGN KEY(id_videojuegos) REFERENCES videojuegos(id_videojuegos)
+=======
+    PRIMARY KEY (id_plataforma, id_videojuego),
+    FOREIGN KEY(id_plataforma) REFERENCES plataforma(id_plataforma),
+    FOREIGN KEY(id_videojuego) REFERENCES videojuego(id_videojuego)
+>>>>>>> 4a2402ebab24398edce9069436771a6d4c4e27dd
 );
 
 CREATE TABLE pedidos_videojuegos(
@@ -102,16 +120,7 @@ INSERT INTO plataformas(nombre) VALUES
 ("PlayStation"),
 ("Nintendo");
 
-# USUARIO
-INSERT INTO usuario (nombre, ap_materno, ap_paterno, correo, telefono, username, id_rol) VALUES
-('Juan', 'Pérez', 'García', 'juan.perez@gmail.com', '5551234567', 'juanp', 1),
-('María', 'López', 'Hernández', 'maria.lopez@yahoo.com', '5552345678', 'mlopez', 2),
-('Carlos', 'Sánchez', 'Martínez', 'carlos.sanchez@hotmail.com', '5553456789', 'carloss', 1),
-('Ana', 'Gómez', 'Jiménez', 'ana.gomez@outlook.com', '5554567890', 'anag', 1),
-('Luis', 'Ramírez', 'Flores', 'luis.ramirez@gmail.com', '5555678901', 'luisrf', 1),
-('Elena', 'Torres', 'Reyes', 'elena.torres@yahoo.com', '5556789012', 'elenat', 1),
-('Javier', 'Morales', 'Cruz', 'javier.morales@hotmail.com', '5557890123', 'javierm', 1),
-('Sofía', 'Vásquez', 'Salinas', 'sofia.vasquez@outlook.com', '5558901234', 'sofiav', 2);
+
 
 #VIDEOJUEGO
 
@@ -137,7 +146,11 @@ VALUES
 #videojuego_plataforma
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Xbox
+<<<<<<< HEAD
 INSERT INTO videojuegos_plataformas (id_videojuegos, id_plataformas, costo, precio, stock)
+=======
+INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
+>>>>>>> 4a2402ebab24398edce9069436771a6d4c4e27dd
 VALUES 
 ((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Cyberpunk 2077'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Xbox'), 450.00, 499.00, 100),
 ((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Gears of War 3'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
@@ -146,7 +159,11 @@ VALUES
 ((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Red Dead Redemption 2'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Xbox'), 450.00, 499.00, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para PlayStation
+<<<<<<< HEAD
 INSERT INTO videojuegos_plataformas (id_videojuegos, id_plataformas, costo, precio, stock)
+=======
+INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
+>>>>>>> 4a2402ebab24398edce9069436771a6d4c4e27dd
 VALUES 
 ((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Elden Ring'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
 ((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'God of War Ragnarok'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
@@ -155,7 +172,11 @@ VALUES
 ((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'The Last of Us 2'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Nintendo
+<<<<<<< HEAD
 INSERT INTO videojuegos_plataformas (id_videojuegos, id_plataformas, costo, precio, stock)
+=======
+INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
+>>>>>>> 4a2402ebab24398edce9069436771a6d4c4e27dd
 VALUES 
 ((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Cuphead'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
 ((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Mario Bros'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),

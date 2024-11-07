@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import db from "../config/db.js";
 import videojuegos from "../model/videojuegos.js";
 // Request -> Peticion Usuario (req)
@@ -57,10 +58,22 @@ const accionMostrarJuegos = async (req, res) => {
     res.status(500).json({ error: "Error al cargar los videojuegos" });
   }
 };
+=======
+
+// Request -> Peticion Usuario (req)
+// Resource -> Resultado de la Peticion (res)
+
+>>>>>>> 4a2402ebab24398edce9069436771a6d4c4e27dd
 
 const inicio = async (req, res) => {
   res.render("inicio");
 };
 
 // Exportaciones de funciones
+<<<<<<< HEAD
 export { inicio, accionMostrarJuegos, accionMostrarPredeterminados };
+=======
+export {
+    inicio
+};
+>>>>>>> 4a2402ebab24398edce9069436771a6d4c4e27dd

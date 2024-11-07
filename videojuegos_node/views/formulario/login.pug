@@ -2,22 +2,22 @@ extends ../layout/index2.pug
 
 block content
     main
-        form(action="")
+        form(action="/login" method="POST")
             h2 Iniciar sesión
             fieldset
                 legend Ingresa tus credenciales:
                 
                 div.form_input
-                    label(for="nombre") Nombre(s)
-                    input(type="text" id="nombre")
+                    label(for="nombre") Usuario
+                    input(type="text" id="nombre" name="username" required)
                 
                 div.form_input
                     label(for="contraseña") Contraseña
-                    input(type="password" id="contraseña")
+                    input(type="password" id="contraseña" name="password" required)
                 
                 div.boton-chico
-                    a.button(href="../index.html" type="submit") Entrar
+                    button.button(href="" type="submit" value="Login") Entrar
 
         div.div-registro
             h4 Aún no tienes una cuenta.
-                a.registrarte(href="registro.html") Regístrate aquí
+                a.registrarte(href="/register") Regístrate aquí

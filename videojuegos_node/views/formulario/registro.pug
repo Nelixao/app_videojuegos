@@ -1,27 +1,33 @@
 extends ../layout/index2
 
 block content
-    form(action="" method="POST")
+    form(action="/register" method="POST")
         h2 Bienvenido
         fieldset
             legend Llena los siguientes campos:
             .form_input
             label(for="nombre") Nombre(s)
-            input(type="text" id="nombre")
+            input(type="text" id="nombre" name="nombre" required)
             .form_input
             label(for="ap_paterno") Apellido paterno
-            input(type="text" id="ap_paterno")
+            input(type="text" id="ap_paterno" name="ap_materno" required)
             .form_input
             label(for="ap_materno") Apellido materno
-            input(type="text" id="ap_materno")
-            .form_input
-            label(for="telefono") Teléfono
-            input(type="tel" id="telefono" maxlength="10")
+            input(type="text" id="ap_materno" name="ap_paterno" required)
             .form_input
             label(for="email") Email
-            input(type="email" placeholder="my_email14@mail.com" id="email")
+            input(type="email" placeholder="my_email14@mail.com" id="email" name="correo" required)
+            .form_input
+            label(for="telefono") Teléfono
+            input(type="tel" id="telefono" maxlength="10" name="telefono" required)
+            .form_input
+            label(for="user_name") User Name
+            input(type="text" id="user_name" name="username" required)
             .form_input
             label(for="contraseña") Contraseña
-            input(type="password" id="contraseña")
+            input(type="password" id="contraseña" name="pass" required)
             .form_input
-            a(href="/" type="submit" class="button") Registrarse
+            label(for="rol") Rol
+            input(type="number" min="1" max="2" id="rol" name="id_rol")
+            .form_input
+            input(type="submit" value="Registrarse" class="button")
