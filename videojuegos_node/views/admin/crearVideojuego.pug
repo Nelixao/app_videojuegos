@@ -1,0 +1,38 @@
+extends ../layout/index2.pug
+
+block content
+  form(action="/admin/crearVideojuego", method="POST")
+    div
+        label(for="titulo") Título del Videojuego:
+        input(type="text", name="titulo", required=true)
+
+    div
+        label(for="imagen") Imagen del Videojuego:
+        input(type="file", name="imagen", accept="image/*", required=true)
+
+    div
+        label(for="trailer") URL del Trailer:
+        input(type="text", name="trailer", required=true)
+
+    div
+          label(for="plataforma") Plataforma:
+          select(name="plataforma", id="plataforma", required=true)
+              option(value="1") Xbox
+              option(value="2") Nintendo
+              option(value="3") PlayStation
+
+    div
+        label(for="costo") Costo:
+        input(type="number", name="costo", required=true)
+
+    div
+        label(for="precio") Precio:
+        input(type="number", name="precio", required=true)
+
+    div
+        label(for="stock") Stock:
+        input(type="number", name="stock", required=true)
+
+    div
+        button(type="submit" class="button") Crear Videojuego
+

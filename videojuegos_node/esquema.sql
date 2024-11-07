@@ -39,53 +39,53 @@ CREATE TABLE pago(
 );
 
 
-CREATE TABLE pedido (
-    id_pedido   INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE pedidos (
+    id_pedidos   INT NOT NULL AUTO_INCREMENT,
     fecha       DATE,
     total       INT,
     id_usuario	INT,
     id_pago		INT,	
 
-    PRIMARY KEY(id_pedido),
+    PRIMARY KEY(id_pedidos),
     FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario),
     FOREIGN KEY(id_pago) REFERENCES pago(id_pago)
 );
 
 
 
-CREATE TABLE plataforma(
-    id_plataforma   INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE plataformas(
+    id_plataformas   INT NOT NULL AUTO_INCREMENT,
     nombre          varchar(20),
-    PRIMARY KEY(id_plataforma)
+    PRIMARY KEY(id_plataformas)
 );
 
 
-CREATE TABLE videojuego(
-    id_videojuego   INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE videojuegos(
+    id_videojuegos   INT NOT NULL AUTO_INCREMENT,
     titulo          varchar(50) NOT NULL,
     imagen          varchar(255) NOT NULL,
-    trailer         varchar(255) NOT NULL,
+    trailer         varchar(255)  NOT NULL,
 	
-    PRIMARY KEY(id_videojuego)
+    PRIMARY KEY(id_videojuegos)
 );
 
-CREATE TABLE videojuego_plataforma(
-    id_plataforma	INT,
-    id_videojuego	INT,
+CREATE TABLE videojuegos_plataformas(
+    id_plataformas	INT,
+    id_videojuegos	INT,
     stock       	INT,
     costo       	INT,
     precio      	INT,
     
-    FOREIGN KEY(id_plataforma) REFERENCES plataforma(id_plataforma),
-    FOREIGN KEY(id_videojuego) REFERENCES videojuego(id_videojuego)
+    FOREIGN KEY(id_plataformas) REFERENCES plataformas(id_plataformas),
+    FOREIGN KEY(id_videojuegos) REFERENCES videojuegos(id_videojuegos)
 );
 
-CREATE TABLE pedido_videojuego(
-	id_pedido		INT,
-    id_videojuego	INT,
+CREATE TABLE pedidos_videojuegos(
+	  id_pedidos		INT,
+    id_videojuegos	INT,
     cantidad        INT(10),
-    FOREIGN KEY(id_pedido) REFERENCES pedido(id_pedido),
-    FOREIGN KEY(id_videojuego) REFERENCES videojuego(id_videojuego)
+    FOREIGN KEY(id_pedidos) REFERENCES pedidos(id_pedidos),
+    FOREIGN KEY(id_videojuegos) REFERENCES videojuegos(id_videojuegos)
 );
 
 
@@ -97,7 +97,7 @@ INSERT INTO roles(tipo) VALUES
 ("Usuario");
 
 # Plataforma 
-INSERT INTO plataforma(nombre) VALUES
+INSERT INTO plataformas(nombre) VALUES
 ("Xbox"),
 ("PlayStation"),
 ("Nintendo");
@@ -116,7 +116,7 @@ INSERT INTO usuario (nombre, ap_materno, ap_paterno, correo, telefono, username,
 #VIDEOJUEGO
 
 -- Insertar datos en la tabla videojuego
-INSERT INTO videojuego (titulo, imagen, trailer)
+INSERT INTO videojuegos (titulo, imagen, trailer)
 VALUES 
 ('Cyberpunk 2077', 'image/games/ciber.jpg', 'https://www.youtube.com/embed/8X2kIfS6fb8?si=szMiLdO-r_ZXkmFT'),
 ('Gears of War 3', 'image/games/gears.jpg', 'https://www.youtube.com/embed/n7Te5fcnrUA?si=RgRcW9zQEs_69eng'),
@@ -137,28 +137,28 @@ VALUES
 #videojuego_plataforma
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Xbox
-INSERT INTO videojuego_plataforma (id_videojuego, id_plataforma, costo, precio, stock)
+INSERT INTO videojuegos_plataformas (id_videojuegos, id_plataformas, costo, precio, stock)
 VALUES 
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Cyberpunk 2077'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Gears of War 3'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Halo 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 250.00, 299.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Injustice 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Red Dead Redemption 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 450.00, 499.00, 100);
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Cyberpunk 2077'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Xbox'), 450.00, 499.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Gears of War 3'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Halo 2'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Xbox'), 250.00, 299.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Injustice 2'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Red Dead Redemption 2'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Xbox'), 450.00, 499.00, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para PlayStation
-INSERT INTO videojuego_plataforma (id_videojuego, id_plataforma, costo, precio, stock)
+INSERT INTO videojuegos_plataformas (id_videojuegos, id_plataformas, costo, precio, stock)
 VALUES 
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Elden Ring'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'God of War Ragnarok'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'GTA V'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Resident Evil 4'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'The Last of Us 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100);
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Elden Ring'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'God of War Ragnarok'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'GTA V'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Resident Evil 4'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'The Last of Us 2'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Nintendo
-INSERT INTO videojuego_plataforma (id_videojuego, id_plataforma, costo, precio, stock)
+INSERT INTO videojuegos_plataformas (id_videojuegos, id_plataformas, costo, precio, stock)
 VALUES 
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Mario Bros'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Splatoon 3'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 250.00, 299.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Super Smash Bros'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'The Legend of Zelda'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 450.00, 499.00, 100);
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Cuphead'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Mario Bros'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Splatoon 3'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Nintendo'), 250.00, 299.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'Super Smash Bros'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Nintendo'), 450.00, 499.00, 100),
+((SELECT id_videojuegos FROM videojuegos WHERE titulo = 'The Legend of Zelda'), (SELECT id_plataformas FROM plataformas WHERE nombre = 'Nintendo'), 450.00, 499.00, 100);

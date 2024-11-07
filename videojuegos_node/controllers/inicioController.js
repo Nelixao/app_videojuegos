@@ -1,5 +1,5 @@
-import db from "../config/db.js"
-import videojuegos from "../model/videojuego.js"
+import db from "../config/db.js";
+import videojuegos from "../model/videojuegos.js";
 // Request -> Peticion Usuario (req)
 // Resource -> Resultado de la Peticion (res)
 // async function consulta(condicion, valores = []) {
@@ -20,52 +20,47 @@ import videojuegos from "../model/videojuego.js"
 // }
 
 async function consulta(condicion, valores = []) {
-    let juegos = await Videojuego.findAll({
-        include: [
-            {
-                model: Plataforma,
-                where: { nombre: valores[0] }  // Filtra por el nombre de la consola/plataforma
-            }
-        ],
-        where: Sequelize.literal(condicion) // Puedes ajustar para evitar inyección SQL
-    });
+  let juegos = await Videojuegos.findAll({
+    include: [
+      {
+        model: Plataforma,
+        where: { nombre: valores[0] }, // Filtra por el nombre de la consola/plataforma
+      },
+    ],
+    where: Sequelize.literal(condicion), // Puedes ajustar para evitar inyección SQL
+  });
 
-    return juegos;
+  return juegos;
 }
 
-
 const accionMostrarPredeterminados = async (req, res) => {
-    const condicion = `videojuego.id_videojuego >= ? AND videojuego.id_videojuego < (? + 3)`;
-    const valores = [req.params.id];  // Usa el valor de id de forma segura como parámetro
+  const condicion = `videojuegos.id_videojuegos >= ? AND videojuegos.id_videojuegos < (? + 3)`;
+  const valores = [req.params.id]; // Usa el valor de id de forma segura como parámetro
 
-    try {
-        const juegos = await consulta(condicion, [valores, valores]);
-        res.json(juegos);  // Devuelve los videojuegos en formato JSON
-        console.log(juegos);
-    } catch (error) {
-        res.status(500).json({ error: 'Error al cargar los videojuegos' });
-    }
+  try {
+    const juegos = await consulta(condicion, [valores, valores]);
+    res.json(juegos); // Devuelve los videojuegos en formato JSON
+    console.log(juegos);
+  } catch (error) {
+    res.status(500).json({ error: "Error al cargar los videojuegos" });
+  }
 };
 
 const accionMostrarJuegos = async (req, res) => {
-    const condicion = `plataforma.nombre = ?`;
-    const valores = [req.params.consola];  // Usa el valor de consola de forma segura como parámetro
-    try {
-        const juegos = await consulta(condicion, valores);
-        res.json(juegos);  // Devuelve los videojuegos en formato JSON
-        console.log(juegos);
-    } catch (error) {
-        res.status(500).json({ error: 'Error al cargar los videojuegos' });
-    }
+  const condicion = `plataforma.nombre = ?`;
+  const valores = [req.params.consola]; // Usa el valor de consola de forma segura como parámetro
+  try {
+    const juegos = await consulta(condicion, valores);
+    res.json(juegos); // Devuelve los videojuegos en formato JSON
+    console.log(juegos);
+  } catch (error) {
+    res.status(500).json({ error: "Error al cargar los videojuegos" });
+  }
 };
 
 const inicio = async (req, res) => {
-    res.render("inicio");
+  res.render("inicio");
 };
 
 // Exportaciones de funciones
-export {
-    inicio,
-    accionMostrarJuegos,
-    accionMostrarPredeterminados
-};
+export { inicio, accionMostrarJuegos, accionMostrarPredeterminados };
