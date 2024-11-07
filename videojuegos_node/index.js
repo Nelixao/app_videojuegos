@@ -6,6 +6,11 @@ import router_Login from "./routes/login_router.js";
 import router_Registro from "./routes/registro_router.js";
 import router_Cards from './routes/cards_router.js';
 import router_Review from './routes/review_router.js'
+import router_crud from "./routes/crud_router.js";
+import router_crear from "./routes/crearVideojuego_router.js";
+import router_leer from "./routes/leerVideojuego_router.js";
+import router_eliminar from "./routes/eliminarVideojuego_router.js";
+import router_actualizar from "./routes/actualizarVideojuego_router.js";
 
 import session from "express-session";
 
@@ -66,7 +71,11 @@ app.use("/login", router_Login)
 app.use("/register", router_Registro)
 app.use("/consola", router_Cards)
 app.use("/review", router_Review)
-
+app.use("/admin", router_crud);
+app.use("/admin", router_crear);
+app.use("/admin", router_leer);
+app.use("/admin", router_eliminar);
+app.use("/admin", router_actualizar);
 
 
 // definiendo el puerto -> Puerto de comunicion

@@ -6,7 +6,8 @@ const accionMostrarReview = async (req, res) => {
         const juego = await videojuego.findOne({ where: { titulo } });
 
         if (juego) {
-            res.render("review/video", { juego });
+            res.render("review/video", { 
+                juego });
         } else {
             res.status(404).send("Reseña no encontrada para este videojuego.");
         }
