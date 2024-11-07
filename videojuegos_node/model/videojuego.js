@@ -4,7 +4,7 @@ import db from "../config/db.js";
 
 
 export const videojuego = db.define(
-    "videojuego", {
+    "videojuegos", {
         id_videojuego: {
             type: Sequelize.INTEGER,
             autoIncrement: true,

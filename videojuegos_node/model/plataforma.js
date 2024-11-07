@@ -4,7 +4,7 @@ import db from "../config/db.js";
 
 
 export const plataforma = db.define(
-    "plataforma",{
+    "plataformas",{
         id_plataforma: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
