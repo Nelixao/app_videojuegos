@@ -1,0 +1,14 @@
+extends ../layout/index.pug
+block content
+    section.section-opciones.opciones(id="opciones")
+        each juego in juegos 
+            div.card
+                div.card-img
+                    img(src=`${juego.imagen}` alt=`${juego.titulo}`)
+                div.card-info
+                    h4.card-title=`${juego.titulo}`
+                    p.precio=`$ ${juego.videojuego_plataformas[0].precio}`
+                    a.button.agregar-carrito(data-id=`${juego.id_videojuego}`) Añadir al carrito
+                    a.button.mostrar-video(data-id=`${juego.trailer}`) Review
+    section.section-video
+                        

@@ -33,7 +33,9 @@ const accionMostrarJuegos = async (req, res) => {
 
     try {
         const juegos = await consulta(condicion, valores);
-        res.json(juegos);
+        res.render("consola/cardVideojuego", {
+            juegos: juegos
+        })
     } catch (error) {
         console.error('Error en la consulta:', error);
         res.status(500).json({ error: 'Error al cargar los videojuegos' });

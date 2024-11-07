@@ -1,7 +1,7 @@
 /* barra de imagenes */
 
 
-.consolas-icons {
+.section-consolas {
     cursor: pointer;
     width: 100%;
     display: flex;
@@ -21,6 +21,7 @@
     height: 27px;
     width: auto;
 }
+
 
 .icon-xbox:hover {
     filter: drop-shadow(0 0px 4px var(--colorXbox));
