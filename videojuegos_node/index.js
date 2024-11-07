@@ -4,6 +4,7 @@ import express from "express";
 import inicio from "./routes/inicio_router.js";
 import router_Login from "./routes/login_router.js";
 import router_Registro from "./routes/registro_router.js";
+import router_Cards from './routes/cards_router.js';
 
 import session from "express-session";
 
@@ -62,6 +63,8 @@ app.use(session({
 app.use("/", inicio);
 app.use("/login", router_Login)
 app.use("/register", router_Registro)
+app.use("/consola", router_Cards)
+
 
 
 

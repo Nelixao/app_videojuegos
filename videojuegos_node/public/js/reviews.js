@@ -84,6 +84,7 @@ function seleccionarVideo(evt){
 
 function insertarVideo(videoLink){
     limpiarSection(); // Limpiar la sección de video
+    console.log(videoLink);
     const video = document.createElement('div');
     video.innerHTML = `
         <iframe width="85%" height="600px" src="${videoLink}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
