@@ -28,7 +28,7 @@ CREATE TABLE usuarios(
     FOREIGN KEY(id_rol) REFERENCES roles(id_rol)
 );
 
-CREATE TABLE pago(
+CREATE TABLE pagos(
     id_pago                 INT NOT NULL AUTO_INCREMENT,
     nombre_en_tarjeta       varchar(30),
     numero_en_tarjeta       INT(16),
@@ -40,7 +40,7 @@ CREATE TABLE pago(
 );
 
 
-CREATE TABLE pedido (
+CREATE TABLE pedidos (
     id_pedido   INT NOT NULL AUTO_INCREMENT,
     fecha       DATE,
     total       INT,
@@ -54,14 +54,14 @@ CREATE TABLE pedido (
 
 
 
-CREATE TABLE plataforma(
+CREATE TABLE plataformas(
     id_plataforma   INT NOT NULL AUTO_INCREMENT,
     nombre          varchar(20),
     PRIMARY KEY(id_plataforma)
 );
 
 
-CREATE TABLE videojuego(
+CREATE TABLE videojuegos(
     id_videojuego   INT NOT NULL AUTO_INCREMENT,
     titulo          varchar(50) NOT NULL,
     imagen          varchar(255) NOT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE videojuego_plataformas(
     FOREIGN KEY(id_videojuego) REFERENCES videojuego(id_videojuego)
 );
 
-CREATE TABLE pedido_videojuego(
+CREATE TABLE pedido_videojuegos(
 	id_pedido		INT,
     id_videojuego	INT,
     cantidad        INT(10),
@@ -99,7 +99,7 @@ INSERT INTO roles(tipo) VALUES
 ("Usuario");
 
 # Plataforma 
-INSERT INTO plataforma(nombre) VALUES
+INSERT INTO plataformas(nombre) VALUES
 ("Xbox"),
 ("PlayStation"),
 ("Nintendo");
@@ -109,49 +109,58 @@ INSERT INTO plataforma(nombre) VALUES
 #VIDEOJUEGO
 
 -- Insertar datos en la tabla videojuego
-INSERT INTO videojuego (titulo, imagen, trailer)
+INSERT INTO videojuegos (titulo, imagen, trailer)
 VALUES 
-('Cyberpunk 2077', 'image/games/ciber.jpg', 'https://www.youtube.com/embed/8X2kIfS6fb8?si=szMiLdO-r_ZXkmFT'),
-('Gears of War 3', 'image/games/gears.jpg', 'https://www.youtube.com/embed/n7Te5fcnrUA?si=RgRcW9zQEs_69eng'),
-('Halo 2', 'image/games/halo.jpg', 'https://www.youtube.com/embed/kjN1eWhzPeA?si=GF-lIpUlCFAFe-0h'),
-('Injustice 2', 'image/games/injustice.jpg', 'https://www.youtube.com/embed/G50rQ6SRCvQ?si=LfDwL9VLP-s4_6Kf'),
-('Red Dead Redemption 2', 'image/games/red.jpg', 'https://www.youtube.com/embed/gmA6MrX81z4?si=l7R05a4r566w--N8'),
-('Elden Ring', 'image/games/elden.jpg', 'https://www.youtube.com/embed/K_03kFqWfqs?si=F8QpjYVOtNiHZt3K'),
-('God of War Ragnarok', 'image/games/gow.jpg', 'https://www.youtube.com/embed/F3jePdO9_jc?si=g8TxxtOtzVt8omL0'),
-('GTA V', 'image/games/gta.jpg', 'https://www.youtube.com/embed/hvoD7ehZPcM?si=p-SbAnRvnmYoIv7f'),
-('Resident Evil 4', 'image/games/resident.jpg', 'https://www.youtube.com/embed/E69tKrfEQag?si=5e8NerwJ_X1244dM'),
-('The Last of Us 2', 'image/games/tlou.jpg', 'https://www.youtube.com/embed/-llaUBqovHw?si=9M-wQPtxXmMQx9mV'),
-('Cuphead', 'image/games/cup.png', 'https://www.youtube.com/embed/NN-9SQXoi50?si=86YzOUjjwhTLKDNg'),
-('Mario Bros', 'image/games/supermario.png', 'https://www.youtube.com/embed/6wTFy-pJFMI?si=7H72S0Y44b-PEHh1'),
-('Splatoon 3', 'image/games/splatoon.png', 'https://www.youtube.com/embed/GUYDXVDLmns?si=QdQBt2xcSGKvVWyf'),
-('Super Smash Bros', 'image/games/smash.png', 'https://www.youtube.com/embed/WShCN-AYHqA?si=GOaDonn5yYP7OOXe'),
-('The Legend of Zelda', 'image/games/zelda.jpg', 'https://www.youtube.com/embed/sjxLF4IYnJc?si=nWDSxREiLeNb8Lve');
+('Cyberpunk 2077', '/image/games/ciber.jpg', 'https://www.youtube.com/embed/8X2kIfS6fb8?si=szMiLdO-r_ZXkmFT'),
+('Gears of War 3', '/image/games/gears.jpg', 'https://www.youtube.com/embed/n7Te5fcnrUA?si=RgRcW9zQEs_69eng'),
+('Halo 2', '/image/games/halo.jpg', 'https://www.youtube.com/embed/kjN1eWhzPeA?si=GF-lIpUlCFAFe-0h'),
+('Injustice 2', '/image/games/injustice.jpg', 'https://www.youtube.com/embed/G50rQ6SRCvQ?si=LfDwL9VLP-s4_6Kf'),
+('Red Dead Redemption 2', '/image/games/red.jpg', 'https://www.youtube.com/embed/gmA6MrX81z4?si=l7R05a4r566w--N8'),
+('Elden Ring', '/image/games/elden.jpg', 'https://www.youtube.com/embed/K_03kFqWfqs?si=F8QpjYVOtNiHZt3K'),
+('God of War Ragnarok', '/image/games/gow.jpg', 'https://www.youtube.com/embed/F3jePdO9_jc?si=g8TxxtOtzVt8omL0'),
+('GTA V', '/image/games/gta.jpg', 'https://www.youtube.com/embed/hvoD7ehZPcM?si=p-SbAnRvnmYoIv7f'),
+('Resident Evil 4', '/image/games/resident.jpg', 'https://www.youtube.com/embed/E69tKrfEQag?si=5e8NerwJ_X1244dM'),
+('The Last of Us 2', '/image/games/tlou.jpg', 'https://www.youtube.com/embed/-llaUBqovHw?si=9M-wQPtxXmMQx9mV'),
+('Cuphead', '/image/games/cup.png', 'https://www.youtube.com/embed/NN-9SQXoi50?si=86YzOUjjwhTLKDNg'),
+('Mario Bros', '/image/games/supermario.png', 'https://www.youtube.com/embed/6wTFy-pJFMI?si=7H72S0Y44b-PEHh1'),
+('Splatoon 3', '/image/games/splatoon.png', 'https://www.youtube.com/embed/GUYDXVDLmns?si=QdQBt2xcSGKvVWyf'),
+('Super Smash Bros', '/image/games/smash.png', 'https://www.youtube.com/embed/WShCN-AYHqA?si=GOaDonn5yYP7OOXe'),
+('The Legend of Zelda', '/image/games/zelda.jpg', 'https://www.youtube.com/embed/sjxLF4IYnJc?si=nWDSxREiLeNb8Lve'),
+('Breath of the Wild', '/image/games/breath.png', 'https://www.youtube.com/embed/zw47_q9wbBE'),
+('Doom', '/image/games/doom.png', 'https://www.youtube.com/embed/RO90omga8D4'),
+('Final Fantasy', '/image/games/ff.png', 'https://www.youtube.com/embed/mDa45U8AKYU?si=cbmckya9_9b4f_oa'),--
+('Forza Horizon', '/image/games/forza.png', 'https://www.youtube.com/embed/FYH9n37B7Yw'),
+('Hellblade', '/image/games/hellblade.jpg', 'https://www.youtube.com/embed/6QLfqX7vINg'),
+('Horizon Zero Dawn', '/image/games/horizon.png', 'https://www.youtube.com/embed/wzx96gYA8ek'),
+('Metroid', '/image/games/metroid.png', 'https://www.youtube.com/embed/mMAgmdR8jwU?si=_JMZku3_2vnn5rsX'),--
+('Mario Kart 8', '/image/games/mk8.png', 'https://www.youtube.com/embed/tKlRN2YpxRE'),
+('Spider-Man', '/image/games/spiderman.png', 'https://www.youtube.com/embed/cXSpEmPmbfc?si=_BpnwkceKiFJaxLk');--
 
 #videojuego_plataforma
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Xbox
 INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
 VALUES 
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Cyberpunk 2077'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Gears of War 3'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Halo 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 250.00, 299.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Injustice 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Red Dead Redemption 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Xbox'), 450.00, 499.00, 100);
+((SELECT id_videojuego FROM videojuego WHERE titulo = 'Cyberpunk 2077'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 450.00, 499.00, 100),
+((SELECT id_videojuego FROM videojuego WHERE titulo = 'Gears of War 3'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
+((SELECT id_videojuego FROM videojuego WHERE titulo = 'Halo 2'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 250.00, 299.00, 100),
+((SELECT id_videojuego FROM videojuego WHERE titulo = 'Injustice 2'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 350.00, 399.00, 100),
+((SELECT id_videojuego FROM videojuego WHERE titulo = 'Red Dead Redemption 2'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 450.00, 499.00, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para PlayStation
 INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
 VALUES 
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Elden Ring'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'God of War Ragnarok'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'GTA V'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Resident Evil 4'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'The Last of Us 2'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'PlayStation'), 450.00, 499.00, 100);
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Elden Ring'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'God of War Ragnarok'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'GTA V'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Resident Evil 4'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'The Last of Us 2'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 450.00, 499.00, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Nintendo
 INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
 VALUES 
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Mario Bros'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Splatoon 3'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 250.00, 299.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'Super Smash Bros'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 450.00, 499.00, 100),
-((SELECT id_videojuego FROM videojuego WHERE titulo = 'The Legend of Zelda'), (SELECT id_plataforma FROM plataforma WHERE nombre = 'Nintendo'), 450.00, 499.00, 100);
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Mario Bros'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 350.00, 399.00, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Splatoon 3'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 250.00, 299.00, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Super Smash Bros'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 450.00, 499.00, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'The Legend of Zelda'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 450.00, 499.00, 100);
