@@ -1,9 +1,9 @@
-import { videojuego } from "../../model/index.js";
+import { Videojuego } from "../../model/modelos.js";
 
-const accionMostrarReview = async (req, res) => {
+const renderizarVideo = async (req, res) => {
     const titulo = req.params.titulo;
     try {
-        const juego = await videojuego.findOne({ where: { titulo } });
+        const juego = await Videojuego.findOne({ where: { titulo } });
 
         if (juego) {
             res.render("review/video", { 
@@ -17,4 +17,4 @@ const accionMostrarReview = async (req, res) => {
     }
 };
 
-export { accionMostrarReview };
+export { renderizarVideo };

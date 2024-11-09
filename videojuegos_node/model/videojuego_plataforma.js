@@ -1,7 +1,7 @@
 import {Sequelize} from "sequelize";
 import db from "../config/db.js";
 
-export const videojuego_plataformas = db.define(
+export const Videojuego_plataformas = db.define(
     "videojuego_plataformas", {
         id_plataforma: {
             type: Sequelize.INTEGER,
@@ -34,4 +34,4 @@ export const videojuego_plataformas = db.define(
     }
 );
 
-export default videojuego_plataformas
+export default Videojuego_plataformas

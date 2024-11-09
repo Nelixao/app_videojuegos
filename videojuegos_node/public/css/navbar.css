@@ -26,8 +26,10 @@
 }
 
 .nav-bar ul li:nth-child(2) {
-    margin: 0 auto;
+    margin-left: calc(50% - 105px); 
+    margin-right: auto;
 }
+
 
 .nav-bar .nav-icon-chico {
     width: auto;

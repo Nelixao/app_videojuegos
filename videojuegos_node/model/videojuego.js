@@ -3,7 +3,7 @@ import db from "../config/db.js";
 
 
 
-export const videojuego = db.define(
+export const Videojuego = db.define(
     "videojuegos", {
         id_videojuego: {
             type: Sequelize.INTEGER,
@@ -29,4 +29,4 @@ export const videojuego = db.define(
 
 
 
-export default videojuego
+export default Videojuego

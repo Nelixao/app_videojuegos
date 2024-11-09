@@ -3,7 +3,7 @@ import db from "../config/db.js";
 
 
 
-export const plataforma = db.define(
+export const Plataforma = db.define(
     "plataformas",{
         id_plataforma: {
             type: Sequelize.INTEGER,
@@ -22,4 +22,4 @@ export const plataforma = db.define(
 
 
 
-export default plataforma
+export default Plataforma
