@@ -1,0 +1,14 @@
+extends ../layout/index.pug
+
+block content 
+    each e in juego
+        div.full 
+            div.full-video
+                iframe( src=e.trailer title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen) 
+            
+            div.full-info
+                h4.card-title= e.titulo
+                p.precio= `$ ${e.videojuego_plataformas[0].precio}`
+                p.button.agregar-carrito(data-id=e.id_videojuego) Añadir al carrito
+                a.button.mostrar-video(href=`/consola/${consola}`) Regresar
+            
