@@ -10,19 +10,23 @@ html(lang="es")
         link(rel="stylesheet" href="/css/reset.css")
         link(rel="stylesheet" href="/css/layout.css")
         link(rel="stylesheet" href="/css/navbar.css")
+        link(rel="stylesheet" href="/css/carrusel.css")
+        link(rel="stylesheet" href="/css/full.css")
 
         script(src="/js/carrito_compras.js")
+        script(src="/js/carrusel.js")
+        script(src="/js/colores.js")
 
     body
         include header
-        include nav
+        include nav 
+
         main 
 
             block content  // Este es el bloque principal de contenido
-
             block contentVideo  // Este es el bloque adicional de contenido
 
-        include aside
+
 
         
 

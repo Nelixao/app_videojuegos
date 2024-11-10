@@ -4,7 +4,6 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: #111111;
-    width: 100vw;
     text-align: center;
     padding: 10px 20px;
     box-shadow: 0 2px 6px var(--colorTematico);
@@ -15,7 +14,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100%;
+    width: 100vw;
 }
 
 .nav-bar ul li {
@@ -26,8 +25,7 @@
 }
 
 .nav-bar ul li:nth-child(2) {
-    margin-left: calc(50% - 105px); 
-    margin-right: auto;
+    margin: auto;
 }
 
 

@@ -4,7 +4,9 @@
 
 
 const inicio = async (req, res) => {
-    res.render("inicio");
+    res.render("inicio",{
+        images: ["2xko.jpg", "gta.jpg", "dune.jpg", "gears.webp", "monster.avif", "tales.avif", "wolverine.webp"]
+    });
 };
 
 // Exportaciones de funciones

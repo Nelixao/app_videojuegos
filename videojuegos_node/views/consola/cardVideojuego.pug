@@ -10,7 +10,7 @@ block content
                     h4.card-title= juego.titulo
                     p.precio= `$ ${juego.videojuego_plataformas[0].precio}`
                     a.button.agregar-carrito(data-id=juego.id_videojuego) Añadir al carrito
-                    a.button.mostrar-video(href=`/consola/${consola}/review/${juego.titulo}`) Review
+                    a.button.mostrar-video(href=`/consola/${consola}/${juego.id_videojuego}`) Ver más
         
 
 block contentVideo
