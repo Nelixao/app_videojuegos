@@ -1,6 +1,7 @@
 extends ../layout/index2.pug
 
 block content
+<<<<<<< HEAD
     form(action="/login" method="POST")
         h2 Iniciar sesión
         fieldset
@@ -16,6 +17,32 @@ block content
             
             div.boton-chico
                 button.button(href="" type="submit" value="Login") Entrar
+=======
+
+    body
+        h1.text-center=pagina
+            div(class="row justify-content-center")
+                h3(class="fw-bold fs-6")=mensaje
+                
+
+
+    main
+        form(action="/login" method="POST")
+            h2 Iniciar sesión
+            fieldset
+                legend Ingresa tus credenciales:
+                
+                div.form_input
+                    label(for="nombre") Usuario
+                    input(type="text" id="nombre" name="username" required)
+                
+                div.form_input
+                    label(for="contraseña") Contraseña
+                    input(type="password" id="contraseña" name="password" required)
+                
+                div.boton-chico
+                    button.button(href="" type="submit" value="Login") Entrar
+>>>>>>> 8b49b436b8b553bf02c0d1181803233e891e7a57
 
     div.div-registro
         h4 Aún no tienes una cuenta.

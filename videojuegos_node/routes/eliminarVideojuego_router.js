@@ -1,5 +1,5 @@
 import express from "express";
-import { eliminarVideojuego } from "../controllers/CRUD/eliminarVideojuegoController.js";
+import { eliminarVideojuego } from "../controllers/crud/eliminarVideojuegoController.js";
 
 const router_eliminar = express.Router();
 

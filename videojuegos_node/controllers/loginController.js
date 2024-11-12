@@ -22,7 +22,13 @@ const registroLogin = async (req, res) => {
             return res.status(400).json({message: "Invalid Credentials"})
         }
 
-        res.redirect("/")
+
+        // res.redirect("/");
+
+        res.render("credenciales/confirmacionlogin", {
+            pagina: `Bienvenido ${username}`,
+        });
+        
         // return res.render("credenciales/confirmacionlogin", {
         //     pagina: "Ingreso el Usuario"
         // });

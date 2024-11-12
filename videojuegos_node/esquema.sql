@@ -22,6 +22,7 @@ CREATE TABLE usuarios(
     telefono        varchar(50) NOT NULL,
     username        varchar(50) NOT NULL,
     pass			varchar(200) NOT NULL,
+    token           varchar(50),
     id_rol			INT NOT NULL,	
 
     PRIMARY KEY(id_usuario),
