@@ -72,8 +72,6 @@ const renderizarVideojuego = async (req, res) => {
     const valores = [consola, titulo];
     try {
         const juego = await consultaVideojuego(condicion, valores);
-        console.log("===========================");
-        console.log(juego);
         res.render("consola/videojuego", {
             juego: juego,
             consola: consola

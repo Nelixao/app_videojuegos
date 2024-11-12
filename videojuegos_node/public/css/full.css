@@ -1,11 +1,18 @@
 .full{
-    width: 100%;
+    width: 80%;
+    height: 80vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
     padding: 20px;
     justify-content: space-evenly;
+    margin: auto;
+    background: linear-gradient(135deg, rgba(94, 94, 94, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(3px);
+    box-shadow: 0 6px 8px var(--colorTematico); 
+    border-radius: 15px;
+    
 }
 
 .full-video iframe{

@@ -134,7 +134,8 @@ VALUES
 ('Horizon Zero Dawn', '/image/games/horizon.png', 'https://www.youtube.com/embed/wzx96gYA8ek'),
 ('Metroid', '/image/games/metroid.png', 'https://www.youtube.com/embed/mMAgmdR8jwU?si=_JMZku3_2vnn5rsX'),--
 ('Mario Kart 8', '/image/games/mk8.png', 'https://www.youtube.com/embed/tKlRN2YpxRE'),
-('Spider-Man', '/image/games/spiderman.png', 'https://www.youtube.com/embed/cXSpEmPmbfc?si=_BpnwkceKiFJaxLk');--
+('Spider-Man', '/image/games/spiderman.png', 'https://www.youtube.com/embed/cXSpEmPmbfc?si=_BpnwkceKiFJaxLk'),
+('Among Us', '/image/games/amongus.jpg', 'https://www.youtube.com/embed/TsIZD1ic2Dg?si=yzFBEblSXj-UQ041');--
 
 #videojuego_plataforma
 
@@ -149,7 +150,9 @@ VALUES
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Elden Ring'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 450.99, 520.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'GTA V'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 410.99, 480.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Resident Evil 4'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 370.99, 440.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 300.99, 370.99, 100);
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 300.99, 370.99, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Among Us'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 99.99, 169.99, 100);
+
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para PlayStation
 INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
@@ -162,7 +165,8 @@ VALUES
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'GTA V'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 410.99, 500.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Resident Evil 4'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 370.99, 460.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'The Last of Us 2'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 440.99, 530.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 300.99, 390.99, 100);
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 300.99, 390.99, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Among Us'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 119.99, 210.99, 100);
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para Nintendo
 INSERT INTO videojuego_plataformas (id_videojuego, id_plataforma, costo, precio, stock)
@@ -175,4 +179,5 @@ VALUES
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Metroid'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 320.99, 430.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Mario Kart 8'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 310.99, 420.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Breath of the Wild'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 400.99, 510.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Doom'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 280.99, 390.99, 100);
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Doom'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 280.99, 390.99, 100),
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Among Us'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 120.99, 230.99, 100);

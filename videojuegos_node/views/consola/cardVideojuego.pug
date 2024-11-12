@@ -11,25 +11,11 @@ block content
                     p.precio= `$ ${juego.videojuego_plataformas[0].precio}`
                     a.button.agregar-carrito(data-id=juego.id_videojuego) Añadir al carrito
                     a.button.mostrar-video(href=`/consola/${consola}/${juego.id_videojuego}`) Ver más
-        
+    
+    script.
+        const consola = !{JSON.stringify(consola)};
+    script(src="/js/colores.js")
 
-block contentVideo
-    if showVideo
-        section.section-video(id="section-video")
-            div
-                iframe(
-                    width="85%" 
-                    height="600px" 
-                    src=review.trailer 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen
-                )
-            p.button.up Volver al inicio
-
-        script(src='/js/reviews.js')
 
 
 

@@ -11,4 +11,7 @@ block content
                 p.precio= `$ ${e.videojuego_plataformas[0].precio}`
                 p.button.agregar-carrito(data-id=e.id_videojuego) Añadir al carrito
                 a.button.mostrar-video(href=`/consola/${consola}`) Regresar
-            
+
+    script.
+        const consola = !{JSON.stringify(consola)};
+    script(src="/js/colores.js")      
