@@ -1,0 +1,35 @@
+extends ../layout/index2.pug
+
+block content
+    h1 Modificar Videojuego
+    form(method="POST", action=`/admin/modificarVideojuego/${valores.id_videojuego}`)
+        div
+            label(for="titulo") Título:
+            input(type="text", name="titulo", value=valores.titulo, required)
+
+        div
+            label(for="imagen") Imagen:
+            input(type="text", name="imagen", value=valores.imagen, required)
+
+        div
+            label(for="trailer") Trailer:
+            input(type="text", name="trailer", value=valores.trailer, required)
+
+        div
+            label(for="plataforma") Plataforma:
+            input(type="text", name="plataforma", value=valores.plataforma, required)
+
+        div
+            label(for="costo") Costo:
+            input(type="number", name="costo", value=valores.costo, required)
+
+        div
+            label(for="precio") Precio:
+            input(type="number", name="precio", value=valores.precio, required)
+
+        div
+            label(for="stock") Stock:
+            input(type="number", name="stock", value=valores.stock, required)
+
+        button(type="submit") Guardar Cambios
+

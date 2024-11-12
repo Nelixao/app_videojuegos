@@ -1,4 +1,33 @@
 extends ../layout/index2.pug
 
 block content
-  h1 Eliminar
+    table
+        thead
+            tr
+                th Título del Videojuego
+                th Id
+                th URL de la Imagen
+                th URL del Trailer
+                th Plataforma
+                th Costo
+                th Precio
+                th Stock
+                th Eliminar
+        tbody
+            each v in videojuego
+                tr
+                    td= v.titulo
+                    td= v.id_videojuego
+                    td
+                        a(href=v.imagen, target='_blank') Imagen
+                    td
+                        a(href=v.trailer, target='_blank') Trailer
+                    td= v.videojuego_plataformas.id_plataforma
+                    td= v.videojuego_plataformas.costo
+                    td= v.videojuego_plataformas.precio
+                    td= v.videojuego_plataformas.stock
+                    td
+                        form(method='post' action='/admin/borrarVideojuego' onsubmit='refreshPage()')
+                            input(type='hidden' name='id' value=v.id_videojuego)
+                            button(type='submit') Eliminar
+
