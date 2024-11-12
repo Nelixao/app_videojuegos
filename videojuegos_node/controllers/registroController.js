@@ -2,9 +2,6 @@ import Usuario from "../model/usuario.js";
 import { check, validationResult } from "express-validator";
 // Hashing the password (Encriptamiento) -> bcryptjs
 import bcryptjs from "bcryptjs";
-import { correoRegistro } from "../helpers/correos.js";
-import { idGenera } from "../helpers/tokens.js";
-
 
 const registro = async (req, res) => {
     res.render("formulario/registro")
@@ -34,27 +31,14 @@ const registrando = async (req, res) => {
         telefono: req.body.telefono,
         username: req.body.username,
         pass: passwordHaash,
-        token: idGenera(),
-        id_rol: 1
+        id_rol: req.body.id_rol
     });
     await usuario.save();
     //mostrar mensaje de confirmacions
     // res.render("credenciales/confirmacion", {
     //     pagina: "Usuario se registro exitosamente",
     // });
-    // res.redirect("/")
-    //mandar correo
-    //mandando el correo
-    correoRegistro({
-        nombre:usuario.nombre,
-        correo:usuario.correo,
-        token:usuario.token
-    })
-    //mostrar mensaje de confirmacions
-    res.render("formulario/login", {
-        pagina: "Usuario se registro, revisa tu correo de confirmación",
-    });
-    
+    res.redirect("/")
 };
 
 async function validacionFormulario(req) {

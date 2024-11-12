@@ -1,7 +1,5 @@
 import express from "express";
 import { crud } from "../controllers/crud/crudController.js";
-<<<<<<< HEAD
-=======
 
 //actualizar
 import {
@@ -25,7 +23,6 @@ import {
     eliminarVideojuego,
     accionBorrarVideojuego,
 } from "../controllers/crud/eliminarVideojuegoController.js";
->>>>>>> temp-branch
 
 const router_crud = express.Router();
 
