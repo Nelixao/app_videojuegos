@@ -1,5 +1,5 @@
 import express from "express";
-import { leerVideojuego } from "../controllers/CRUD/leerVideojuegoController.js";
+import { leerVideojuego } from "../controllers/crud/leerVideojuegoController.js";
 
 const router_leer = express.Router();
 

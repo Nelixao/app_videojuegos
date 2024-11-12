@@ -1,8 +1,9 @@
 import express from "express";
+
 import {
   crearVideojuego,
   registrando,
-} from "../controllers/CRUD/crearVideojuegoController.js";
+} from "../controllers/crud/crearVideojuegoController.js";
 
 const router_crear = express.Router();
 
