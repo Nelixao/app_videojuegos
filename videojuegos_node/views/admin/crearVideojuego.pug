@@ -1,14 +1,14 @@
 extends ../layout/index2.pug
 
 block content
-  form(action="/admin/crearVideojuego", method="POST")
+  form(action="/admin/crearVideojuego", method="POST" enctype="multipart/form-data")
     div
         label(for="titulo") Título del Videojuego:
         input(type="text", name="titulo", required=true)
 
     div
         label(for="imagen") Imagen del Videojuego:
-        input(type="file", name="imagen", accept="image/*", required=true)
+        input(type="file" name="imagen" required)
 
     div
         label(for="trailer") URL del Trailer:
@@ -17,10 +17,8 @@ block content
     div
         label(for="id_plataforma") Plataforma:
         select(name="id_plataforma", id="id_plataforma", required=true)
-            option(value="1") Xbox
-            option(value="2") Nintendo
-            option(value="3") PlayStation
-
+            each datos in info
+                option(value=datos.dato1 selected) #{datos.dato2}
     div
         label(for="costo") Costo:
         input(type="number", name="costo", required=true)

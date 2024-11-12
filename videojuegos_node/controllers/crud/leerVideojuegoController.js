@@ -1,9 +1,17 @@
-import videojuegos from "../../model/videojuego.js";
-import videojuegos_plataformas from "../../model/videojuego_plataforma.js";
+import videojuegos, { Videojuego } from "../../model/Videojuego.js";
+import videojuegos_plataformas, { Videojuego_plataformas } from "../../model/Videojuego_plataforma.js";
 
-const leerVideojuego = (req, res) => {
-  res.render("admin/leerVideojuego");
-  console.log("se renderizo");
+const leerVideojuego = async (req, res) => {
+  const videojuegos = await Videojuego.findAll({
+    include: {
+      model: Videojuego_plataformas
+    },
+    raw: true,
+    nest: true
+  });
+  res.render("admin/leerVideojuego", {
+    videojuego: videojuegos
+  });
 };
 
 export { leerVideojuego };
