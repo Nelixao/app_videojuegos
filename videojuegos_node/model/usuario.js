@@ -37,6 +37,7 @@ id_usuario: {
     type:DataTypes.STRING,
     allowNull:false
     },
+    token:DataTypes.STRING,
     },{
     timestamps: false,
     });
