@@ -38,11 +38,7 @@ const registrando = async (req, res) => {
         id_rol: 1
     });
     await usuario.save();
-    //mostrar mensaje de confirmacions
-    // res.render("credenciales/confirmacion", {
-    //     pagina: "Usuario se registro exitosamente",
-    // });
-    // res.redirect("/")
+
     //mandar correo
     //mandando el correo
     correoRegistro({
@@ -50,6 +46,7 @@ const registrando = async (req, res) => {
         correo:usuario.correo,
         token:usuario.token
     })
+
     //mostrar mensaje de confirmacions
     res.render("formulario/login", {
         pagina: "Usuario se registro, revisa tu correo de confirmación",
@@ -58,25 +55,6 @@ const registrando = async (req, res) => {
 };
 
 async function validacionFormulario(req) {
-    await check("nombre")
-        .notEmpty()
-        .withMessage("Nombre no debe ser vacio")
-        .run(req);
-
-    await check("ap_paterno")
-        .notEmpty()
-        .withMessage("Apellido Paterno no debe ser vacio")
-        .run(req);
-
-    await check("ap_materno")
-        .notEmpty()
-        .withMessage("Apellido Materno no debe ser vacio")
-        .run(req);
-
-    await check("telefono")
-        .notEmpty()
-        .withMessage("Telefono no debe ser vacio")
-        .run(req);
 
     await check("username")
         .notEmpty()
@@ -92,6 +70,7 @@ async function validacionFormulario(req) {
         .notEmpty()
         .withMessage("Correo no debe ser vacio")
         .run(req);
+
     let salida = validationResult(req);
     return salida;
 }

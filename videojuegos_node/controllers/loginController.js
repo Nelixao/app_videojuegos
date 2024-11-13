@@ -8,30 +8,33 @@ const login = (req, res) => {
 }
 
 const registroLogin = async (req, res) => {
+
     try{
+        
         const {username, password} = req.body;
         const user = await Usuario.findOne({where:{username}});
 
-        if(!user) {
-            return res.status(400).json({message: "Invalid Credentials"})
+
+        if(!user)  {
+            res.render("formulario/login", {
+                pagina: `Credenciales Invalidas`,
+            });
         }
 
         const isPassword = await bcryptjs.compare(password, user.pass)
 
-        if(!isPassword) {
-            return res.status(400).json({message: "Invalid Credentials"})
+        if(!isPassword){
+            res.render("formulario/login", {
+                pagina: `Credenciales Invalidas`,
+            });
         }
 
+        
 
-        // res.redirect("/");
 
         res.render("credenciales/confirmacionlogin", {
             pagina: `Bienvenido ${username}`,
         });
-        
-        // return res.render("credenciales/confirmacionlogin", {
-        //     pagina: "Ingreso el Usuario"
-        // });
         
 
     }catch (error){

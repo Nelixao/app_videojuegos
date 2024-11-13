@@ -15,11 +15,11 @@ id_usuario: {
     },
     ap_paterno:{
     type:DataTypes.STRING,
-    allowNull:false
+    allowNull:true
     },
     ap_materno:{
     type:DataTypes.STRING,
-    allowNull:false
+    allowNull:true
     },
     correo:{
     type:DataTypes.STRING,
@@ -27,7 +27,7 @@ id_usuario: {
     },
     telefono:{
     type:DataTypes.STRING,
-    allowNull:false
+    allowNull:true
     },
     username:{
     type:DataTypes.STRING,
