@@ -8,14 +8,27 @@ block content
                     img(src=juego.imagen, alt=juego.titulo)
                 div.card-info
                     h4.card-title= juego.titulo
+                    img.estrellas(src="/image/icons/estrellas.png")
                     p.precio= `$ ${juego.videojuego_plataformas[0].precio}`
                     a.button.agregar-carrito(data-id=juego.id_videojuego) Añadir al carrito
                     a.button.mostrar-video(href=`/consola/${consola}/${juego.id_videojuego}`) Ver más
+
+    if showVideo 
+        .modal 
+            div.full 
+                div.full-video
+                    iframe( src=juego.trailer title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen) 
+                
+                div.full-info
+                    h4.card-title= juego.titulo
+                    img.estrellas(src="/image/icons/estrellas.png")
+                    p.precio= `$ ${juego.videojuego_plataformas[0].precio}`
+                    p.button.agregar-carrito(data-id=juego.id_videojuego) Añadir al carrito
+                    a.button.mostrar-video(href=`/consola/${consola}`) Regresar
     
     script.
         const consola = !{JSON.stringify(consola)};
     script(src="/js/colores.js")
-
 
 
 

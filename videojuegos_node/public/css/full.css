@@ -1,3 +1,17 @@
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9000;
+    background: linear-gradient(135deg, rgba(94, 94, 94, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .full{
     width: 80%;
     height: 80vh;
@@ -8,20 +22,26 @@
     padding: 20px;
     justify-content: space-evenly;
     margin: auto;
-    background: linear-gradient(135deg, rgba(94, 94, 94, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(3px);
+    background-color: #151515fc;
     box-shadow: 0 6px 8px var(--colorTematico); 
     border-radius: 15px;
     
 }
 
-.full-video iframe{
-    width: 750px;
-    height: 500px;
+.full-video {
+    width: 70%;
+    max-width: 750px;
+    height: 80%;
+    max-height: 500px;
     border-radius: 15px;
+    overflow: hidden;
+}
+
+.full-video iframe{
+    width: 100%;
+    height: 100%;
 }
 
 .full-info{
-
     width: 250px;
 }

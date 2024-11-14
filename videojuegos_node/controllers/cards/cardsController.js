@@ -1,8 +1,8 @@
 
-import {Videojuego, Plataforma, Videojuego_plataformas} from "../../model/modelos.js"
+import { Videojuego, Plataforma, Videojuego_plataformas } from "../../model/modelos.js"
 import { Op } from "sequelize";
 
-async function consulta(condicion, valores) {
+async function consulta( valores) {
     let juegos = await Videojuego.findAll({
         attributes: ['id_videojuego', 'titulo', 'imagen', 'trailer'],  // Atributos que deseas obtener de la tabla `videojuego`
         include: [
@@ -15,7 +15,7 @@ async function consulta(condicion, valores) {
                         model: Plataforma,
                         attributes: ['nombre'],  // Atributo específico de `plataforma`
                         required: true,  // Cambia a INNER JOIN
-                        where: { [condicion]: valores[0] }  // Filtra por el nombre de la consola/plataforma
+                        where: { nombre: valores[0] }  // Filtra por el nombre de la consola/plataforma
                     }
                 ]
             }
@@ -24,25 +24,28 @@ async function consulta(condicion, valores) {
     return juegos;
 }
 
-async function consultaVideojuego(condicion, valores) {
-    let juego = await Videojuego.findAll({
-        attributes: ['id_videojuego', 'titulo', 'imagen', 'trailer'],  // Atributos que deseas obtener de la tabla `videojuego`
+async function consultaVideojuego(valores) {
+    let juego = await Videojuego.findOne({
+        attributes: ['id_videojuego', 'titulo', 'imagen', 'trailer'],
         include: [
             {
                 model: Videojuego_plataformas,
-                attributes: ['precio'],  // Atributo específico de `videojuego_plataforma`
-                required: true,  // Cambia a INNER JOIN
-                where: {id_videojuego: valores[1]},
+                attributes: ['precio'],
+                required: true, // Esto asegura un INNER JOIN
                 include: [
                     {
                         model: Plataforma,
-                        attributes: ['nombre'],  // Atributo específico de `plataforma`
-                        required: true,  // Cambia a INNER JOIN
-                        where: {[condicion]: valores[0] }
+                        attributes: ['nombre'],
+                        required: true, // Esto también realiza un INNER JOIN con Plataforma
+                        where: { nombre: valores[0] }
                     }
                 ]
             }
-        ]
+        ],
+        where: {
+            // Condiciones específicas para el modelo principal `Videojuego`
+            id_videojuego: valores[1] // Ejemplo de filtro
+        }
     });
     return juego;
 }
@@ -50,10 +53,9 @@ async function consultaVideojuego(condicion, valores) {
 
 const renderizarCardVideojuego = async (req, res) => {
     const consola = req.params.consola;
-    const condicion = 'nombre';  // Campo en la tabla `Plataforma` para el filtro
     const valores = [consola];
     try {
-        const juegos = await consulta(condicion, valores);
+        const juegos = await consulta(valores);
         res.render("consola/cardVideojuego", {
             juegos: juegos,
             consola: consola,
@@ -67,14 +69,16 @@ const renderizarCardVideojuego = async (req, res) => {
 
 const renderizarVideojuego = async (req, res) => {
     const consola = req.params.consola;
-    const titulo = req.params.titulo;
-    const condicion = 'nombre';  // Campo en la tabla `Plataforma` para el filtro
+    const titulo = req.params.titulo;  // Campo en la tabla `Plataforma` para el filtro
     const valores = [consola, titulo];
     try {
-        const juego = await consultaVideojuego(condicion, valores);
-        res.render("consola/videojuego", {
+        const juego = await consultaVideojuego(valores);
+        const juegos = await consulta(valores);
+        res.render("consola/cardVideojuego", {
             juego: juego,
-            consola: consola
+            juegos: juegos,
+            consola: consola,
+            showVideo: true,
         });
 
     } catch (error) {
@@ -84,7 +88,7 @@ const renderizarVideojuego = async (req, res) => {
 };
 
 
-export{
+export {
     renderizarCardVideojuego,
     renderizarVideojuego,
 }
