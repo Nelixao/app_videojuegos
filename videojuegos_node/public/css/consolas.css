@@ -35,3 +35,10 @@
 .icon-nintendo:hover {
     filter: drop-shadow(0 0px 4px var(--colorNintendo));
 }
+
+.button_logout{
+    position: absolute;
+    right: 4em;
+    top: 6.3em;
+    text-decoration: none;
+}

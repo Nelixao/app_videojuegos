@@ -58,7 +58,7 @@ const registrando = async (req, res) => {
 // Esportaciones de funciones
 export {
     registro,
-    registrando
+    registrando,
 };
 
 
