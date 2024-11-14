@@ -9,43 +9,38 @@ id_usuario: {
     autoIncrement: true,
     primaryKey: true,
     },
-    nombre:{
+nombre:{
     type:DataTypes.STRING,
     allowNull:false
     },
-    ap_paterno:{
+ap_paterno:{
     type:DataTypes.STRING,
     allowNull:true
     },
-    ap_materno:{
+correo:{
     type:DataTypes.STRING,
-    allowNull:true
+    allowNull:false, 
     },
-    correo:{
-    type:DataTypes.STRING,
-    allowNull:false
-    },
-    telefono:{
-    type:DataTypes.STRING,
-    allowNull:true
-    },
-    username:{
+username:{
     type:DataTypes.STRING,
     allowNull:false
     },
-    pass:{
+pass:{
     type:DataTypes.STRING,
     allowNull:false
     },
-    token:DataTypes.STRING,
+token:DataTypes.STRING,
     },{
+    
     timestamps: false,
     });
+    
     Rol.hasOne(Usuario, {
     foreignKey: {
     name: "id_rol",
     },
     });
+    
     Usuario.belongsTo(Rol, {
     foreignKey: {
     name: "id_rol",
