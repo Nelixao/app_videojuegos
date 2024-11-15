@@ -1,5 +1,6 @@
 import Usuario from "../model/usuario.js";
 import bcryptjs from "bcryptjs";
+import { log } from "console";
 import jwt from "jsonwebtoken";
 import promisify from "util"
 
@@ -20,11 +21,17 @@ const registroLogin = async (req, res) => {
             const isPassword = await bcryptjs.compare(password, user.pass)
             var user_token = user.token;
             
+            
             if(!user || !isPassword){
                 // En caso de que algun campo no coincida
                 res.render("formulario/login", {
                         pagina: `Credenciales Invalidas`,
                     });
+            }
+            if(!user.confirmar){
+                res.render("formulario/login", {
+                    pagina: `Debes confirma tu correo`,
+                });
             }
             // Inicio de sesion validado
             else{
@@ -35,7 +42,6 @@ const registroLogin = async (req, res) => {
                 })
 
                 // console.log(`Token ${token} para usuario ${username}`);
-
 
                 const cookieOptions = {
                     expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
@@ -90,10 +96,56 @@ const isAuthenticated = async(req, res, next) =>{
 }
 
 
+const verificarCuenta = async (req, res) => {
+    const {token} = req.params;
+
+    //token valido
+    const usuario=await Usuario.findOne({where:{token}});
+
+    if(!usuario){
+        res.render("formulario/login", {
+        
+            pagina: "No se pudo confirmar tu cuenta",
+        
+        });
+    }else{
+        usuario.token=null;
+        usuario.confirmar=true;
+    
+        await usuario.save();
+        res.render("formulario/login", {
+            pagina: "Su cuenta se confirmo exitosamente",
+        });
+    }
+
+    
+
+}
+
+
+// const{correo,password}=req.body
+//     const us=await Usuario.findOne({where:{correo}})
+//     if(!us){
+//     return res.render("credenciales/login", {
+//     pagina: "Alta Usuario",
+//     csrf:req.csrfToken(),
+//     errores: [{msg:'El usuario no existe'}]
+//     });
+//     }
+//     //comprobar si el usuario esta confirmado
+//     if(!us.confirmar){
+//     return res.render("credenciales/login", {
+//     pagina: "Alta Usuario",
+//     csrf:req.csrfToken(),
+//     errores: [{msg:'Tu cuenta no tiene confirmación, revisa tu correo'}]
+//     });
+//     }
+
 
 // Exportaciones de funciones
 export{
     login,
     registroLogin,
     isAuthenticated,
+    verificarCuenta
 };

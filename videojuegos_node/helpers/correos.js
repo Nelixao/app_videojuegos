@@ -14,24 +14,24 @@ const correoRegistro = async (info) => {
 
     });
 
-
-    const {nombre,correo,token}=info
+    const {nombre, correo, token} = info
 
     await transport.sendMail({
         from:'hugopdemo@gmail.com', 
-        to:correo,
+        to: correo,
         subject: 'Confirma tu registro en QUANTUM!!!',
         html:`
-            <p> Como estas ${nombre}, para terminar por favor verifica la cuenta</p>
+            <p> Como estas ${nombre}, para terminar por favor verifica la cuenta.</p>
             <p> Confirma en el siguiente enlace:
-            <a href="${process.env.URL_BACKEND}:${process.env.PORT_BACKEND ?? 2800}
-            /confirmarinscripcion/${token}"> Confirmar </a>
+            <a href="${process.env.URL_BACKEND}:${process.env.PORT_BACKEND ?? 2800}/verificar/${token}"> Confirmar </a>
             </p>
-            <p>Si no solicitaste el registro, por favor ignora el mensaje</p>
-            `
+            <p>Si no solicitaste el registro, por favor ignora el mensaje</p>`
     })
 };
 
 export {
     correoRegistro
 }
+
+
+

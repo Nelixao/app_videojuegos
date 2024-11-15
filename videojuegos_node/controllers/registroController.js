@@ -23,7 +23,7 @@ const registrando = async (req, res) => {
         const ap_paterno = req.body.ap_paterno;
         const correo = req.body.correo;
         const username = req.body.username;
-        const pass = req.body.pass
+        const pass = req.body.pass;
         let passHash = await bcryptjs.hash(pass, 8)   
 
         const usuario = await Usuario.create({
@@ -42,12 +42,29 @@ const registrando = async (req, res) => {
             
         });
         await usuario.save();
-        res.redirect("/")
+
+        // Envio de Correo de confirmacion
+        correoRegistro({
+
+            nombre: usuario.nombre,
+            correo: usuario.correo,
+            token:  usuario.token
+
+        })
+
+        //mostrar mensaje de confirmacions
+        res.render("formulario/login", {
+            pagina: `${usuario.username} verificate en tu correo electronico.`,
+        });
+
         
     }catch(error){
         console.log(error);
         
     }
+
+    
+
      
     
     
@@ -55,11 +72,33 @@ const registrando = async (req, res) => {
 
 
 
+
 // Esportaciones de funciones
 export {
     registro,
     registrando,
+    
 };
+
+
+
+// if(!usuario){
+//     res.render("credenciales/confirmacion", {
+    
+//       pagina: "No se pudo confirmar tu cuenta",
+//       mensaje:"Lo lamentamos no se pudo confirmar la cuenta intentalo de nuevo"
+//       });
+//       }
+//       //confirmar la cuenta del usuario
+//       usuario.token=null;
+//       usuario.confirmar=true;
+//       await usuario.save();
+//       res.render("credenciales/confirmacion", {
+//       pagina: "Su cuenta se confirmo exitosamente",
+//       mensaje:"Felicidades el registro se termino exitosamente",
+//       enlace:"salto"
+//       });
+//       }
 
 
 
@@ -114,13 +153,6 @@ export {
 //         correo:usuario.correo,
 //         token:usuario.token
 //     })
-
-//     //mostrar mensaje de confirmacions
-//     res.render("formulario/login", {
-//         pagina: "Usuario se registro, revisa tu correo de confirmación",
-//     });
-
-// };
 
 // async function validacionFormulario(req) {
 

@@ -6,6 +6,7 @@ import {registro, registrando} from "../controllers/registroController.js";
 const router_Registro = express.Router();
 
 router_Registro.get('/', registro)
+
 router_Registro.post('/', registrando);
 
 

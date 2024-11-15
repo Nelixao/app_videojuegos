@@ -20,6 +20,7 @@ import session from "express-session";
 import db from "./config/db.js";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import router_Verificar from "./routes/router_Verificar.js";
 
 // CONFIGURACIONES PAGINA
 
@@ -70,9 +71,10 @@ app.use(session({
 // Llamar a los routers
 // routing -> Ruta por default
 app.use("/", inicio);
-app.use("/login", router_Login)
-app.use("/register", router_Registro)
-app.use("/logout", router_Logout)
+app.use("/login", router_Login);
+app.use("/register", router_Registro);
+app.use("/logout", router_Logout);
+app.use("/verificar", router_Verificar);
 
 app.use("/consola", router_Cards)
 app.use("/review", router_Review)

@@ -30,6 +30,7 @@ pass:{
     allowNull:false
     },
 token:DataTypes.STRING,
+confirmar:DataTypes.BOOLEAN,
     },{
     
     timestamps: false,
