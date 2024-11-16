@@ -12,7 +12,7 @@
     "nodejs",
     "express",
     "nodemon",
-    "sql"
+    "mariadb"
   ],
   "author": "Erick Baco",
   "license": "ISC",

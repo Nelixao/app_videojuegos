@@ -13,16 +13,16 @@ import session from "express-session";
 // Registro Usuario
 
 import db from "./config/db.js";
-
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+import router_Verificar from "./routes/router_Verificar.js";
 
 // CONFIGURACIONES PAGINA
 
 // Crear la aplicacion 
 const app = express();
 
-
-
-//leer formulario
+// Procesar datos enviados desde forms
 app.use(express.urlencoded({ extended: true }));
 
 try {
@@ -34,9 +34,11 @@ try {
 }
 
 
+//seteamios las variables de entorno
+dotenv.config({path:".env"});
 
-// Accesos a los datos del formulario
-// Traer datos del formulario
+// seteamos las cookies 
+app.use(cookieParser()) 
 
 // Renderizar las paginas
 // pug -> estilo
@@ -61,10 +63,14 @@ app.use(session({
     saveUninitialized:true
 }))
 
+// Llamar a los routers
 // routing -> Ruta por default
 app.use("/", inicio);
-app.use("/login", router_Login)
-app.use("/register", router_Registro)
+app.use("/login", router_Login);
+app.use("/register", router_Registro);
+app.use("/logout", router_Logout);
+app.use("/verificar", router_Verificar);
+
 app.use("/consola", router_Cards)
 app.use("/admin", router_crud);
 app.use("/image", express.static("public/image"))

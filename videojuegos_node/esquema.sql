@@ -16,17 +16,18 @@ CREATE TABLE roles(
 CREATE TABLE usuarios(
     id_usuario      INT NOT NULL AUTO_INCREMENT,
     nombre          varchar(50) NOT NULL,
-    ap_materno      varchar(50) NOT NULL,
     ap_paterno      varchar(50) NOT NULL,
     correo          varchar(50) NOT NULL,
-    telefono        varchar(50) NOT NULL,
     username        varchar(50) NOT NULL,
     pass			varchar(200) NOT NULL,
+    token           varchar(50),
+    confirmar	    tinyint(1) 	DEFAULT 0,
     id_rol			INT NOT NULL,	
 
     PRIMARY KEY(id_usuario),
     FOREIGN KEY(id_rol) REFERENCES roles(id_rol)
 );
+
 
 CREATE TABLE pagos(
     id_pago                 INT NOT NULL AUTO_INCREMENT,
@@ -103,6 +104,8 @@ INSERT INTO plataformas(nombre) VALUES
 ("Xbox"),
 ("PlayStation"),
 ("Nintendo");
+
+
 
 
 
