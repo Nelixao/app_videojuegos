@@ -3,6 +3,7 @@
 import express from "express";
 import inicio from "./routes/inicio_router.js";
 import router_Login from "./routes/login_router.js";
+import router_Logout from "./routes/logout_router.js"
 import router_Registro from "./routes/registro_router.js";
 import router_Cards from './routes/cards_router.js';
 import router_crud from "./routes/crud_router.js";
