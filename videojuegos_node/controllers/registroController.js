@@ -33,6 +33,8 @@ const registrando = async (req, res) => {
             username: username,
             pass: passHash,
             token: idGenera(),
+            // provicional
+            confirmar: true,
             id_rol: 1,
 
             if(error){

@@ -37,8 +37,16 @@ body {
 main {
     margin: 0;
     height: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 a {
     cursor: pointer;
+}
+
+@media (max-width: 400px) {
+    .aside{
+        display: none;
+    }
 }

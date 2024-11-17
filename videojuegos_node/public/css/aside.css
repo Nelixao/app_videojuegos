@@ -1,0 +1,29 @@
+.aside{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.noticias-header{
+    margin: 10px 0 10px;
+    text-align: center;
+    font-size: 1.05rem;
+    border: 1px solid var(--colorTematico);
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #1c1c1c;
+}
+
+.noticias-content a{
+    display: inline-block;
+    text-decoration: none;
+    color: azure;
+    margin: 10px 5px 10px;
+    font-size: 1.05rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+

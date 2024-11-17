@@ -104,3 +104,8 @@
     width: 80%;
     margin: auto;
 }
+
+hr{
+    margin: 15px 0 15px;
+    border-color: var(--colorTematico);
+}

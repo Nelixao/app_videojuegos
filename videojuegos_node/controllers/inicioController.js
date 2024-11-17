@@ -9,6 +9,8 @@ const inicio = async (req, res) => {
     });
 };
 
+
+
 // Exportaciones de funciones
 export {
     inicio

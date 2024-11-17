@@ -6,33 +6,34 @@ block content
         h1.text-center=pagina
             div(class="row justify-content-center")
                 h3(class="fw-bold fs-6")=mensaje
-                
-    form(action="/register" method="POST")
-        h2 Bienvenido
-        fieldset
-            legend Llena los siguientes campos:
-            .form_input
-            label(for="nombre") Nombre(s)
-            input(type="text" id="nombre" name="nombre" required)
-            .form_input
-            label(for="ap_paterno") Apellido paterno
-            input(type="text" id="ap_paterno" name="ap_paterno")
-            .form_input
-            label(for="email") Email
-            input(type="email" placeholder="my_email14@mail.com" id="email" name="correo" required)
-            .form_input
-            label(for="user_name") User Name
-            input(type="text" id="user_name" name="username" required)
-            .form_input
-            label(for="contraseña") Contraseña
-            input(type="password" id="contraseña" name="pass" required)
-            .form_input
-            label(for="rol") Rol
-            input(type="number" min="1" max="2" id="rol" name="id_rol")
-            .form_input
-            input(type="submit" value="Registrarse" class="button")
 
-        div.div-registro
-            h4 ¿Ya tienes una cuenta?
-                br
-                a.registrarte(href="/login") Ingresa Aquí
+    div.content-login
+        form(action="/register" method="POST")
+            h2 Bienvenido
+            fieldset
+                legend Llena los siguientes campos:
+                .form_input
+                label(for="nombre") Nombre(s)
+                input(type="text" id="nombre" name="nombre" required)
+                .form_input
+                label(for="ap_paterno") Apellido paterno
+                input(type="text" id="ap_paterno" name="ap_paterno")
+                .form_input
+                label(for="email") Email
+                input(type="email" placeholder="my_email14@mail.com" id="email" name="correo" required)
+                .form_input
+                label(for="user_name") User Name
+                input(type="text" id="user_name" name="username" required)
+                .form_input
+                label(for="contraseña") Contraseña
+                input(type="password" id="contraseña" name="pass" required)
+                .form_input
+                label(for="rol") Rol
+                input(type="number" min="1" max="2" id="rol" name="id_rol")
+                .form_input
+                input(type="submit" value="Registrarse" class="button")
+
+            div.div-registro
+                h4 ¿Ya tienes una cuenta?
+                    br
+                    a.registrarte(href="/login") Ingresa Aquí

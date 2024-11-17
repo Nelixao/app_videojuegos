@@ -24,6 +24,14 @@ header{
     width: 100%;
 }
 
+.content-opciones{
+    width: 90%;
+}
+
+.content-carousel{
+    width: 90%;
+}
+
 .section-opciones {
     margin: 10px;
 }

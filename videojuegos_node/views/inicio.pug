@@ -2,15 +2,19 @@ extends ./layout/index.pug
 
 block content
 
-    div.recomendacion-header
-        h4 Proximamente...
+    
+    div.content-carousel
+        div.recomendacion-header
+            h4 Proximamente...
 
-    div.carousel
-        div.carousel-button(id="prev")
-            p.button &lt;
-        div.carousel-content
-            each image in images
-                img.carousel-image(src=`/image/carrusel/${image}`, alt="Imagen de proximos titulos")
-        div.carousel-button(id="next")
-            p.button &gt;
-        
+        div.carousel
+            div.carousel-button(id="prev")
+                p.button &lt;
+            div.carousel-content
+                each image in images
+                    img.carousel-image(src=`/image/carrusel/${image}`, alt="Imagen de proximos titulos")
+            div.carousel-button(id="next")
+                p.button &gt;
+    
+    
+
