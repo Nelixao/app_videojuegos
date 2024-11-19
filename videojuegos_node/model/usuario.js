@@ -3,11 +3,11 @@ import { DataTypes } from 'sequelize';
 import db from '../config/db.js';
 import Rol from "./rol.js";
 
-const Usuario = db.define('usuarios', {
-    id_usuario: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+const Usuario= db.define('usuarios',{
+id_usuario: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
     },
     nombre: {
         type: DataTypes.STRING,

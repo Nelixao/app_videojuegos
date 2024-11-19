@@ -1,0 +1,192 @@
+/*CRUD*/
+
+:root {
+    --colorXbox: rgb(171, 255, 137);
+    --colorPlay: rgb(56, 142, 255);
+    --colorNintendo: rgb(255, 101, 101);
+    --colorTematico: rgb(240, 254, 254);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    color: azure;
+    background-image: radial-gradient(circle at center, #1a1a1a, #000);
+    background-color: #101010;
+}
+
+main {
+    margin: 0;
+    height: 100%;
+}
+
+a {
+    color: azure;
+    cursor: pointer;
+}
+
+/*reset*/
+
+.contendor-nav {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-crud {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.p-crud {
+    font-size: 16px;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+.p-crud:hover {
+    color: #ff6347;
+    transition: 0.5s;
+}
+
+.img-crud {
+    margin-left: 1rem;
+    width: 24px;
+    height: 24px;
+}
+
+/* Leer */
+
+.leer {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 8px;
+    border: 2px solid #ddd;
+    text-align: center;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin: 0 auto;
+    background-color: #000; 
+    
+}
+
+th.leer {
+    background-color: #444;  
+    color: #fff;  
+    font-weight: bold;
+}
+
+tr.leer:nth-child(even) {
+    background-color: #1a1a1a;  
+}
+
+tr.leer:nth-child(odd) {
+    background-color: #333;  
+}
+
+tr.leer:hover {
+    background-color: #ddd;  
+    color: #000;
+    transition: 0.5s;
+}
+
+
+td.leer a.leer {
+    display: inline-block;
+    color: #00bfff;  
+    text-decoration: none;  
+}
+
+td.leer a.leer:hover {
+    color: #ff6347;  
+    transition: 0.5s;
+}
+
+/* actualizar */
+
+/* eliminar */
+
+/* crear */
+
+.titulo {
+    padding: 2rem;
+    text-align: center;
+}
+
+.forms {
+    background: linear-gradient(135deg, rgba(94, 94, 94, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 2px 12px rgb(240, 254, 254);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+
+.inputs {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border: rgb(240, 254, 254) solid;
+    border-radius: 10px;
+    border-width: 1px;
+    background-color: transparent;
+    color: rgb(240, 254, 254);
+}
+
+.inputs:hover {
+    background-color: var(--colorTematico);
+    color: black;
+    border-color: var(--colorTematico);
+    transition: 0.5s;
+}
+
+.botoncrud {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border: rgb(240, 254, 254) solid;
+    border-radius: 10px;
+    border-width: 1px;
+    background-color: transparent;
+    color: #ff6347;
+    text-decoration: none;
+
+}
+
+
+.labels {
+    margin-left: 6px;
+    font-size: 0.9em;
+    line-height: 2;
+}
+
+fieldset {
+    margin: 10px 0;
+    border: 1px solid rgb(240, 254, 254);
+    border-radius: 15px;
+    padding: 8px 6px 20px 6px;
+    margin: 20px;
+}

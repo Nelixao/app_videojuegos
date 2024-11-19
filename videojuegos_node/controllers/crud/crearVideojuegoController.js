@@ -1,6 +1,6 @@
 import db from "../../config/db.js";
 import { check, validationResult } from "express-validator";
-import Videojuego from "../../model/Videojuego.js";
+import Videojuego from "../../model/videojuego.js";
 import Videojuego_plataformas from "../../model/videojuego_plataforma.js";
 //imagenes
 import multer from 'multer';
@@ -8,7 +8,7 @@ import path from 'path';
 
 
 const crearVideojuego = async (req, res) => {
-  const plataformas = await consulta(); 
+  const plataformas = await consulta();
   res.render("admin/crearVideojuego", { info: plataformas });
   console.log("Se renderizoooooooooooooooo");
 };
@@ -44,7 +44,7 @@ const registrando = async (req, res) => {
     console.error("Error al registrar el videojuego:", error);
     res.status(500).send("Error al registrar el videojuego");
   }
-};
+}; 
 
 //para el select
 async function consulta() {
@@ -60,13 +60,46 @@ async function consulta() {
 //imagen
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/image/games'); 
+    cb(null, 'public/image/games');
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); 
+    cb(null, Date.now() + path.extname(file.originalname));
   }
 });
 
+async function validacionFormulario(req) {
+  await check("titulo")
+    .notEmpty()
+    .withMessage("Titulo no debe ser vacio")
+    .run(req);
+  await check("imagen")
+    .notEmpty()
+    .withMessage("Imagen no debe ser vacio")
+    .run(req);
+  await check("trailer")
+    .notEmpty()
+    .withMessage("URL del Trailer materno no debe ser vacio")
+    .run(req);
+  await check("plataforma")
+    .notEmpty()
+    .withMessage("Plataformas no debe ser vacio")
+    .run(req);
+  await check("costo")
+    .notEmpty()
+    .withMessage("costo no debe ser vacio")
+    .run(req);
+  await check("precio")
+    .notEmpty()
+    .withMessage("Precio no debe ser vacio")
+    .run(req);
+  await check("stock")
+    .notEmpty()
+    .withMessage("Stock no debe ser vacio")
+    .run(req);
+  let salida = validationResult(req);
+  return salida;
+}
+
 const upload = multer({ storage: storage });
 
-export { crearVideojuego, registrando, upload};
+export { crearVideojuego, registrando, upload };

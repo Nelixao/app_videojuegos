@@ -1,35 +1,35 @@
-extends ../layout/index2.pug
+extends ../admin/crud.pug
 
 block content
-    h1 Modificar Videojuego
-    form(method="POST", action=`/admin/modificarVideojuego/${valores.id_videojuego}`)
+    h1.titulo Modificar Videojuego
+    form.forms(method="POST", action=`/admin/modificarVideojuego/${valores.id_videojuego}` enctype="multipart/form-data")
         div
-            label(for="titulo") Título:
-            input(type="text", name="titulo", value=valores.titulo, required)
+            label.labels(for="titulo") Título:
+            input.inputs(type="text", name="titulo", value=valores.titulo, required)
 
         div
-            label(for="imagen") Imagen:
-            input(type="text", name="imagen", value=valores.imagen, required)
+            label.labels(for="imagen") Imagen:
+            input.inputs(type="file" name="imagen")
 
         div
-            label(for="trailer") Trailer:
-            input(type="text", name="trailer", value=valores.trailer, required)
+            label.labels(for="trailer") Trailer:
+            input.inputs(type="text", name="trailer", value=valores.trailer, required)
 
         div
-            label(for="plataforma") Plataforma:
-            input(type="text", name="plataforma", value=valores.plataforma, required)
+            label.labels(for="plataforma") Plataforma:
+            input.inputs(type="text", name="plataforma", value=valores.plataforma, required)
 
         div
-            label(for="costo") Costo:
-            input(type="number", name="costo", value=valores.costo, required)
+            label.labels(for="costo") Costo:
+            input.inputs(type="number", name="costo", value=valores.costo, required)
 
         div
-            label(for="precio") Precio:
-            input(type="number", name="precio", value=valores.precio, required)
+            label.labels(for="precio") Precio:
+            input.inputs(type="number", name="precio", value=valores.precio, required)
 
         div
-            label(for="stock") Stock:
-            input(type="number", name="stock", value=valores.stock, required)
-
-        button(type="submit") Guardar Cambios
+            label.labels(for="stock") Stock:
+            input.inputs(type="number", name="stock", value=valores.stock, required)
+        div
+            button(type="submit" class="button") Guardar Cambios
 

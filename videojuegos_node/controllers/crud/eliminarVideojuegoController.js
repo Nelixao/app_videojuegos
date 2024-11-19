@@ -1,6 +1,6 @@
 import { check, validationResult } from 'express-validator';
-import videojuegos, { Videojuego } from "../../model/Videojuego.js";
-import videojuegos_plataformas, { Videojuego_plataformas } from "../../model/Videojuego_plataforma.js";
+import videojuegos, { Videojuego } from "../../model/videojuego.js";
+import videojuegos_plataformas, { Videojuego_plataformas } from "../../model/videojuego_plataforma.js";
 
 const eliminarVideojuego = async (req, res) => {
   const videojuegos = await Videojuego.findAll({

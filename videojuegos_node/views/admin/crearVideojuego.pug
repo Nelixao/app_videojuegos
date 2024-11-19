@@ -1,36 +1,38 @@
-extends ../layout/index2.pug
+extends ../admin/crud.pug
 
 block content
-  form(action="/admin/crearVideojuego", method="POST" enctype="multipart/form-data")
-    div
-        label(for="titulo") Título del Videojuego:
-        input(type="text", name="titulo", required=true)
+    h1.titulo Crear Videojuego
+    form.forms(action="/admin/crearVideojuego", method="POST" enctype="multipart/form-data")
+        fieldset 
+            div.form_input
+                label.labels(for="titulo") Título del Videojuego:
+                input.inputs(type="text", name="titulo", required=true)
 
-    div
-        label(for="imagen") Imagen del Videojuego:
-        input(type="file" name="imagen" required)
+            div.form_input
+                label.labels(for="imagen") Imagen del Videojuego:
+                input.inputs(type="file" name="imagen" required)
 
-    div
-        label(for="trailer") URL del Trailer:
-        input(type="text", name="trailer", required=true)
+            div.form_input
+                label.labels(for="trailer") URL del Trailer:
+                input.inputs(type="text", name="trailer", required=true)
 
-    div
-        label(for="id_plataforma") Plataforma:
-        select(name="id_plataforma", id="id_plataforma", required=true)
-            each datos in info
-                option(value=datos.dato1 selected) #{datos.dato2}
-    div
-        label(for="costo") Costo:
-        input(type="number", name="costo", required=true)
+            div.form_input
+                label.labels(for="id_plataforma") Plataforma:
+                select.inputs(name="id_plataforma", id="id_plataforma", required=true)
+                    each datos in info
+                        option(value=datos.dato1 selected) #{datos.dato2}
+            div.form_input
+                label.labels(for="costo") Costo:
+                input.inputs(type="number", name="costo", required=true)
 
-    div
-        label(for="precio") Precio:
-        input(type="number", name="precio", required=true)
+            div.form_input
+                label.labels(for="precio") Precio:
+                input.inputs(type="number", name="precio", required=true)
 
-    div
-        label(for="stock") Stock:
-        input(type="number", name="stock", required=true)
+            div.form_input
+                label.labels(for="stock") Stock:
+                input.inputs(type="number", name="stock", required=true)
 
-    div
-        button(type="submit" class="button") Crear Videojuego
+            div.boton-chico
+                button(type="submit" class="button") Crear Videojuego
 

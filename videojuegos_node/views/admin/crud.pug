@@ -1,13 +1,23 @@
-extends ../layout/index2.pug
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Not-Steam
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Not-Steam
+        link(rel="icon" href="/image/icons/favicon.jpeg" type="image/x-icon")
+        link(rel="stylesheet" href="/css/layout.css")
+        link(rel="stylesheet" href="/css/navbar.css")   
+        link(rel="stylesheet" href="/css/componentes.css")
+        link(rel="stylesheet", href="/css/crud.css")
 
-block content
-  nav.navbar
-    ul.nav
-      li.nav-item
-        a.nav-link(href="/admin/crearVideojuego") Crear Videojuego
-      li.nav-item
-        a.nav-link(href="/admin//leerVideojuego") Leer Videojuego
-      li.nav-item
-        a.nav-link(href="/admin/actualizarVideojuego") Actualizar Videojuego
-      li.nav-item
-        a.nav-link(href="/admin/eliminarVideojuego") Eliminar Videojuego
+
+    body
+        include headerCrud
+        include navCrud
+
+        main
+
+            block content 
+
