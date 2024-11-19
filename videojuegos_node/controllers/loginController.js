@@ -1,8 +1,13 @@
 import Usuario from "../model/usuario.js";
 import bcryptjs from "bcryptjs";
-import { log } from "console";
 import jwt from "jsonwebtoken";
 import promisify from "util"
+
+function changeLogin(){
+    const loginIcon = document.querySelector(".loginIcon");
+    loginIcon.setAttribute("href", "/logout")     
+}
+
 
 const login = (req, res) => {
     res.render("formulario/login");
@@ -17,6 +22,7 @@ const registroLogin = async (req, res) => {
         
         
         try {
+            
             const user = await Usuario.findOne({where:{username}})
             const isPassword = await bcryptjs.compare(password, user.pass)
             var user_token = user.token;
@@ -25,17 +31,17 @@ const registroLogin = async (req, res) => {
             if(!user || !isPassword){
                 // En caso de que algun campo no coincida
                 res.render("formulario/login", {
-                        pagina: `Credenciales Invalidas`,
-                    });
+                    pagina: `Credenciales Invalidas`,
+                });
             }
             if(!user.confirmar){
                 res.render("formulario/login", {
-                    pagina: `Debes confirma tu correo`,
+                    pagina: `Debes confirmar tu correo`,
                 });
             }
             // Inicio de sesion validado
             else{
-                
+
                 const id_usuario = user.id_usuario;
                 const token = jwt.sign({id_usuario:id_usuario}, process.env.JWT_SECRETO,{ 
                     expiresIn: process.env.JWT_TIEMPO_EXPIRA
@@ -48,11 +54,14 @@ const registroLogin = async (req, res) => {
                     httpOnly: true
                 }
                 res.cookie("jwt", token, cookieOptions)
-                
+
+
                 res.render("credenciales/confirmacionlogin", {
                     pagina: `Bienvenido ${user.nombre}`,
                 });
-    
+
+                changeLogin()
+
             }
 
         // Si se ingresan dos campos los cuales no se encuentran en la base de datos
@@ -95,17 +104,16 @@ const isAuthenticated = async(req, res, next) =>{
     }
 }
 
-
 const verificarCuenta = async (req, res) => {
     const {token} = req.params;
 
     //token valido
-    const usuario=await Usuario.findOne({where:{token}});
+    const usuario = await Usuario.findOne({where:{token}});
 
     if(!usuario){
         res.render("formulario/login", {
-        
-            pagina: "No se pudo confirmar tu cuenta",
+            
+            pagina: "No has confirmado tu cuenta",
         
         });
     }else{
@@ -121,25 +129,6 @@ const verificarCuenta = async (req, res) => {
     
 
 }
-
-
-// const{correo,password}=req.body
-//     const us=await Usuario.findOne({where:{correo}})
-//     if(!us){
-//     return res.render("credenciales/login", {
-//     pagina: "Alta Usuario",
-//     csrf:req.csrfToken(),
-//     errores: [{msg:'El usuario no existe'}]
-//     });
-//     }
-//     //comprobar si el usuario esta confirmado
-//     if(!us.confirmar){
-//     return res.render("credenciales/login", {
-//     pagina: "Alta Usuario",
-//     csrf:req.csrfToken(),
-//     errores: [{msg:'Tu cuenta no tiene confirmación, revisa tu correo'}]
-//     });
-//     }
 
 
 // Exportaciones de funciones

@@ -24,41 +24,60 @@ const registrando = async (req, res) => {
         const correo = req.body.correo;
         const username = req.body.username;
         const pass = req.body.pass;
-        let passHash = await bcryptjs.hash(pass, 8)   
+        let passHash = await bcryptjs.hash(pass, 8)
 
-        const usuario = await Usuario.create({
-            nombre: nombre,
-            ap_paterno: ap_paterno,
-            correo: correo,
-            username: username,
-            pass: passHash,
-            token: idGenera(),
-            // provicional
-            confirmar: true,
-            id_rol: 1,
+        const user = await Usuario.findOne({where:{username}})
+        const email = await Usuario.findOne({where:{correo}})
 
-            if(error){
-                console.log(error);
+        if(user || email){
+            if(user){
+                res.render("formulario/registro", {
+                    pagina: `Username ya existente, pruebe con otro.`,
+                });
+            }
+            else{
+                res.render("formulario/registro", {
+                    pagina: `Correo ya existente, prueba con otro.`,
+                });
             }
             
+        }else{
             
-        });
-        await usuario.save();
+            const usuario = await Usuario.create({
 
-        // Envio de Correo de confirmacion
-        correoRegistro({
+                nombre: nombre,
+                ap_paterno: ap_paterno,
+                correo: correo,
+                username: username,
+                pass: passHash,
+                token: idGenera(),
+                // provicional
+            confirmar: true,
+            id_rol: 1,
+    
+                if(error){
+                    console.log(error);
+                }        
+                
+            });
+            await usuario.save();
 
-            nombre: usuario.nombre,
-            correo: usuario.correo,
-            token:  usuario.token
+             // Envio de Correo de confirmacion
+            correoRegistro({
 
-        })
+                nombre: usuario.nombre,
+                correo: usuario.correo,
+                token:  usuario.token
 
-        //mostrar mensaje de confirmacions
-        res.render("formulario/login", {
-            pagina: `${usuario.username} verificate en tu correo electronico.`,
-        });
+            })
 
+            //mostrar mensaje de confirmacions
+            res.render("formulario/login", {
+                pagina: `"${usuario.username}" verificate en tu correo electronico.`,
+            });
+
+        }
+        
         
     }catch(error){
         console.log(error);
@@ -82,104 +101,3 @@ export {
     
 };
 
-
-
-// if(!usuario){
-//     res.render("credenciales/confirmacion", {
-    
-//       pagina: "No se pudo confirmar tu cuenta",
-//       mensaje:"Lo lamentamos no se pudo confirmar la cuenta intentalo de nuevo"
-//       });
-//       }
-//       //confirmar la cuenta del usuario
-//       usuario.token=null;
-//       usuario.confirmar=true;
-//       await usuario.save();
-//       res.render("credenciales/confirmacion", {
-//       pagina: "Su cuenta se confirmo exitosamente",
-//       mensaje:"Felicidades el registro se termino exitosamente",
-//       enlace:"salto"
-//       });
-//       }
-
-
-
-// const registrando = async (req, res) => {
-
-//     const password = req.body.pass;
-//     const passwordHaash = await bcryptjs.hash(password, 8);
-    
-//     const username = req.body.username;
-//     const user = Usuario.findOne({username});
-    
-//     const correo = req.body.email;
-//     const email = Usuario.findOne({correo})
-
-//     if(user){
-//         res.render("formulario/registro", {
-//             mensaje: "Ese usuario ya esta en uso."
-//         });
-//     }
-
-//     if(user){
-//         res.render("formulario/registro", {
-//             mensaje: "Ese usuario ya esta en uso."
-//         });
-//     }
-
-//     let valido = await validacionFormulario(req);
-
-//     if (!valido.isEmpty()) {
-//         return res.render("credenciales/registrar", {
-//             pagina: "Alta Usuario",
-//             errores: valido.array(),
-//         });
-//     }
-
-//     const usuario = await Usuario.create({
-//         nombre: req.body.nombre,
-//         ap_paterno: req.body.ap_paterno,
-//         correo: req.body.correo,
-//         username: req.body.username,
-//         pass: passwordHaash,
-//         token: idGenera(),
-//         id_rol: 1
-//     });
-//     await usuario.save();
-    
-
-//     //mandar correo
-//     //mandando el correo
-//     correoRegistro({
-//         nombre:usuario.nombre,
-//         correo:usuario.correo,
-//         token:usuario.token
-//     })
-
-// async function validacionFormulario(req) {
-
-//     await check("username")
-//         .notEmpty()
-//         .withMessage("Usuario no debe ser vacio")
-//         .run(req);
-
-//     await check("pass")
-//         .notEmpty()
-//         .withMessage("Password no debe ser vacio")
-//         .run(req);
-
-//     await check("correo")
-//         .notEmpty()
-//         .withMessage("Correo no debe ser vacio")
-//         .run(req);
-
-//     let salida = validationResult(req);
-//     return salida;
-// }
-
-
-// // Esportaciones de funciones
-// export {
-//     registro,
-//     registrando
-// };
