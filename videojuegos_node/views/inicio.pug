@@ -4,17 +4,19 @@ block content
 
     
     div.content-carousel
-        div.recomendacion-header
-            h4 Proximamente...
 
-        div.carousel
-            div.carousel-button(id="prev")
-                p.button &lt;
-            div.carousel-content
+        #carouselExampleAutoplaying.carousel.slide(data-bs-ride="carousel")
+            .carousel-inner
                 each image in images
-                    img.carousel-image(src=`/image/carrusel/${image}`, alt="Imagen de proximos titulos")
-            div.carousel-button(id="next")
-                p.button &gt;
-    
+                    .carousel-item.active
+                        img.d-block.w-100(src=`/image/carrusel/${image}` alt="proximos titulos")
+                
+            button.carousel-control-prev(type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev")
+                span.carousel-control-prev-icon(aria-hidden="true")
+                span.visually-hidden Previous
+            button.carousel-control-next(type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next")
+                span.carousel-control-next-icon(aria-hidden="true")
+                span.visually-hidden Next
+
     
 
