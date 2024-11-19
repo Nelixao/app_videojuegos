@@ -51,8 +51,6 @@ app.set("views", "./views");
 app.use(express.static("public"));
 
 
-
-
 // Variables de Sesion
 
 app.use(session({
@@ -71,6 +69,14 @@ app.use("/login", router_Login);
 app.use("/register", router_Registro);
 app.use("/logout", router_Logout);
 app.use("/verificar", router_Verificar);
+
+app.use(function(req, res, exit) {
+    
+    res.locals.loggedin = req.session.loggedin;
+
+    exit();
+})
+
 
 app.use("/consola", router_Cards)
 app.use("/admin", router_crud);
