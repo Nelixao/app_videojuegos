@@ -28,7 +28,6 @@ CREATE TABLE usuarios(
     FOREIGN KEY(id_rol) REFERENCES roles(id_rol)
 );
 
-
 CREATE TABLE pagos(
     id_pago                 INT NOT NULL AUTO_INCREMENT,
     nombre_en_tarjeta       varchar(30),
@@ -154,12 +153,7 @@ VALUES
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'GTA V'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 410.99, 480.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Resident Evil 4'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 370.99, 440.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Cuphead'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 300.99, 370.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Among Us'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 99.99, 169.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Doom'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 280.99, 390.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Forza Horizon'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 330.99, 410.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Hellblade'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 340.99, 430.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Horizon Zero Dawn'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 400.99, 490.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Spider-Man'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 420.99, 510.99, 100);
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Among Us'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Xbox'), 99.99, 169.99, 100);
 
 
 -- Insertar datos en la tabla de relación videojuego_plataforma para PlayStation
@@ -188,10 +182,4 @@ VALUES
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Mario Kart 8'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 310.99, 420.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Breath of the Wild'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 400.99, 510.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Doom'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 280.99, 390.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Among Us'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 120.99, 230.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Doom'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 280.99, 390.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Final Fantasy'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 340.99, 430.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Forza Horizon'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 330.99, 410.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Hellblade'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 340.99, 430.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Horizon Zero Dawn'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 400.99, 490.99, 100),
-((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Spider-Man'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'PlayStation'), 420.99, 510.99, 100);
+((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Among Us'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 120.99, 230.99, 100);
