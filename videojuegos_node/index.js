@@ -5,7 +5,8 @@ import inicio from "./routes/inicio_router.js";
 import router_Login from "./routes/login_router.js";
 import router_Registro from "./routes/registro_router.js";
 import router_Cards from './routes/cards_router.js';
-import router_Review from './routes/review_router.js'
+import router_crud from "./routes/crud_router.js";
+
 
 import session from "express-session";
 
@@ -13,9 +14,10 @@ import session from "express-session";
 
 import db from "./config/db.js";
 
+
 // CONFIGURACIONES PAGINA
 
-// Crear la aplicacion
+// Crear la aplicacion 
 const app = express();
 
 
@@ -24,11 +26,11 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 try {
-  await db.authenticate();
-  db.sync();
-  console.log("Conexion exitosa a la base de datos");
+    await db.authenticate();
+    db.sync();
+    console.log("Conexion exitosa a la base de datos");
 } catch (error) {
-  console.log(error);
+    console.log(error);
 }
 
 
@@ -61,16 +63,20 @@ app.use(session({
 
 // routing -> Ruta por default
 app.use("/", inicio);
-app.use("/formulario", router_Login)
-app.use("/formulario", router_Registro)
+app.use("/login", router_Login)
+app.use("/register", router_Registro)
+app.use("/consola", router_Cards)
+app.use("/admin", router_crud);
+app.use("/image", express.static("public/image"))
 
 
 // definiendo el puerto -> Puerto de comunicion
 // Se le puede dar >=1024
 const port = 2800;
 app.listen(port, () => {
-  console.log("Esperando peticiones en");
+    console.log("Esperando peticiones en");
 });
+
 
 
 // // Accesos a los datos del formulario

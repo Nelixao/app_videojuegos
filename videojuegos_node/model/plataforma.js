@@ -3,8 +3,8 @@ import db from "../config/db.js";
 
 
 
-export const plataforma = db.define(
-    "plataforma",{
+export const Plataforma = db.define(
+    "plataformas",{
         id_plataforma: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
@@ -22,4 +22,4 @@ export const plataforma = db.define(
 
 
 
-export default plataforma
+export default Plataforma

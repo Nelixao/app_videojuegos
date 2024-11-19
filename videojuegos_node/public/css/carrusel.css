@@ -1,0 +1,28 @@
+/* public/css/styles.css */
+.carousel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.carousel-content {
+    position: relative;
+    width: 80%;
+    max-width: 850px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.carousel-image {
+    width: 100%;
+    margin: auto;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-image.active{
+    opacity: 1;
+}
+
+

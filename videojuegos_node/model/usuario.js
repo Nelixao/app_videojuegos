@@ -3,7 +3,7 @@ import {DataTypes} from 'sequelize';
 import db from '../config/db.js';
 import Rol from "./rol.js";
 
-const Usuario= db.define('usuario',{
+const Usuario= db.define('usuarios',{
 id_usuario: {
     type: Sequelize.INTEGER,
     autoIncrement: true,

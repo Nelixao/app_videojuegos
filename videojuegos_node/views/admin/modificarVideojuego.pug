@@ -1,0 +1,35 @@
+extends ../admin/crud.pug
+
+block content
+    h1.titulo Modificar Videojuego
+    form.forms(method="POST", action=`/admin/modificarVideojuego/${valores.id_videojuego}` enctype="multipart/form-data")
+        div
+            label.labels(for="titulo") Título:
+            input.inputs(type="text", name="titulo", value=valores.titulo, required)
+
+        div
+            label.labels(for="imagen") Imagen:
+            input.inputs(type="file" name="imagen")
+
+        div
+            label.labels(for="trailer") Trailer:
+            input.inputs(type="text", name="trailer", value=valores.trailer, required)
+
+        div
+            label.labels(for="plataforma") Plataforma:
+            input.inputs(type="text", name="plataforma", value=valores.plataforma, required)
+
+        div
+            label.labels(for="costo") Costo:
+            input.inputs(type="number", name="costo", value=valores.costo, required)
+
+        div
+            label.labels(for="precio") Precio:
+            input.inputs(type="number", name="precio", value=valores.precio, required)
+
+        div
+            label.labels(for="stock") Stock:
+            input.inputs(type="number", name="stock", value=valores.stock, required)
+        div
+            button(type="submit" class="button") Guardar Cambios
+

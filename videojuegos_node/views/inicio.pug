@@ -1,9 +1,16 @@
 extends ./layout/index.pug
 
 block content
+
     div.recomendacion-header
         h4 Proximamente...
-        img(src="/image/2xko.jpg", alt="2xko")
-    section.section-opciones.opciones(id="opciones")
+
+    div.carousel
+        div.carousel-button(id="prev")
+            p.button &lt;
+        div.carousel-content
+            each image in images
+                img.carousel-image(src=`/image/carrusel/${image}`, alt="Imagen de proximos titulos")
+        div.carousel-button(id="next")
+            p.button &gt;
         
-    section.section-video

@@ -1,4 +1,34 @@
-extends ../layout/index2.pug
+extends ../admin/crud.pug
 
 block content
-  h1 Eliminar
+    h1.titulo Eliminar Videojuego
+        table
+            thead
+                tr.leer
+                    th.leer Título del Videojuego
+                    th.leer Id
+                    th.leer URL de la Imagen
+                    th.leer URL del Trailer
+                    th.leer Plataforma
+                    th.leer Costo
+                    th.leer Precio
+                    th.leer Stock
+                    th.leer Eliminar
+            tbody
+                each v in videojuego
+                    tr.leer
+                        td.leer= v.titulo
+                        td.leer= v.id_videojuego
+                        td.leer
+                            a.botoncrud(href=v.imagen, target='_blank') Imagen
+                        td.leer
+                            a.botoncrud(href=v.trailer, target='_blank') Trailer
+                        td.leer= v.videojuego_plataformas.id_plataforma
+                        td.leer= v.videojuego_plataformas.costo
+                        td.leer= v.videojuego_plataformas.precio
+                        td.leer= v.videojuego_plataformas.stock
+                        td.leer
+                            form(method='post' action='/admin/borrarVideojuego' onsubmit='refreshPage()')
+                                input.inputs(type='hidden' name='id' value=v.id_videojuego)
+                                button.botoncrud(type='submit') Eliminar
+

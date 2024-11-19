@@ -10,13 +10,14 @@ body {
 
 main {
     margin: 0;
-    width: 75%;
+    width: 100vw;
     height: 100%;
 }
 
-aside {
-    width: 25%;
-    padding: 15px 10px 15px 0px;
+header{
+    width: 100%;
+
+    box-sizing: border-box;
 }
 
 .section-consolas {
@@ -46,11 +47,9 @@ aside {
 }
 
 .section-opciones {
-    margin: 10px;
-    margin: 0;
+    margin: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
     gap: 15px;
     padding: 15px;
     padding-top: 25px;
