@@ -105,8 +105,10 @@ tr.leer:nth-child(odd) {
 
 tr.leer:hover {
     background-color: #ddd;  
+    color: #000;
     transition: 0.5s;
 }
+
 
 td.leer a.leer {
     display: inline-block;
@@ -179,4 +181,12 @@ td.leer a.leer:hover {
     margin-left: 6px;
     font-size: 0.9em;
     line-height: 2;
+}
+
+fieldset {
+    margin: 10px 0;
+    border: 1px solid rgb(240, 254, 254);
+    border-radius: 15px;
+    padding: 8px 6px 20px 6px;
+    margin: 20px;
 }
