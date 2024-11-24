@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (consola == 'Xbox') {
         changeThemeColor(getComputedStyle(document.documentElement).getPropertyValue('--colorXbox'));
-    } else if (consola == 'Playstation') {
+    } else if (consola == 'PlayStation') {
         changeThemeColor(getComputedStyle(document.documentElement).getPropertyValue('--colorPlay'));
     } else if (consola == 'Nintendo') {
         changeThemeColor(getComputedStyle(document.documentElement).getPropertyValue('--colorNintendo'));

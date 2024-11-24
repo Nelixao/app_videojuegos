@@ -2,21 +2,46 @@ extends ./layout/index.pug
 
 block content
 
-    
-    div.content-carousel
+    .inicio 
+        div.content-carousel
 
-        #carouselExampleAutoplaying.carousel.slide(data-bs-ride="carousel")
-            .carousel-inner
-                each image in images
+            #carouselExampleAutoplaying.carousel.slide(data-bs-ride="carousel")
+                .carousel-inner
                     .carousel-item.active
-                        img.d-block.w-100(src=`/image/carrusel/${image}` alt="proximos titulos")
+                        img.d-block.w-100(src=`/image/carrusel/2xko.jpg` alt="proximos titulos")
+                    .carousel-item.active
+                        img.d-block.w-100(src=`/image/carrusel/gta.jpg` alt="proximos titulos")
+                    .carousel-item.active
+                        img.d-block.w-100(src=`/image/carrusel/dune.jpg` alt="proximos titulos")
+                    .carousel-item.active
+                        img.d-block.w-100(src=`/image/carrusel/gears.webp` alt="proximos titulos")
+                    .carousel-item.active
+                        img.d-block.w-100(src=`/image/carrusel/monster.avif` alt="proximos titulos")  
+                    .carousel-item.active
+                        img.d-block.w-100(src=`/image/carrusel/tales.avif` alt="proximos titulos")     
+                    .carousel-item.active
+                        img.d-block.w-100(src=`/image/carrusel/wolverine.webp` alt="proximos titulos")        
                 
-            button.carousel-control-prev(type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev")
-                span.carousel-control-prev-icon(aria-hidden="true")
-                span.visually-hidden Previous
-            button.carousel-control-next(type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next")
-                span.carousel-control-next-icon(aria-hidden="true")
-                span.visually-hidden Next
+                button.carousel-control-prev(type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev")
+                    span.carousel-control-prev-icon(aria-hidden="true")
+                    span.visually-hidden Previous
+                button.carousel-control-next(type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next")
+                    span.carousel-control-next-icon(aria-hidden="true")
+                    span.visually-hidden Next
 
-    
+        div.content-opciones.opciones-inicio
+            section.section-opciones.opciones(id="opciones")
+                each juego in juegos 
+                    div.card
+                        div.card-img
+                            img(src=juego.imagen, alt=juego.titulo)
+                        div.card-info
+                            h4.card-title= juego.titulo
+                            img.estrellas(src="/image/icons/estrellas.png")
+                            h4.card-title= juego.videojuego_plataformas[0].plataforma.dataValues.nombre
+                            p.precio= `$ ${juego.videojuego_plataformas[0].precio}`
+                            a.button.agregar-carrito(data-id=juego.id_videojuego) Añadir al carrito
+                            a.button.mostrar-video(href=`/consola/${juego.videojuego_plataformas[0].plataforma.dataValues.nombre}/${juego.id_videojuego}`) Ver más
+
+        
 

@@ -28,7 +28,6 @@ body {
     /* background-image: radial-gradient(rgba(255, 255, 255, 0.027) 2px, transparent 0);
     background-size: 30px 30px;
     background-position: -5px -5px */
-
     background-image: radial-gradient(circle at center, #1a1a1a, #000);
     background-color: #101010;
 }

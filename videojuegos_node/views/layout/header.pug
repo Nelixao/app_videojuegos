@@ -1,17 +1,28 @@
-header
-    div.nav-bar
-        ul
-            if loggedin
-                li
-                    a.loginIcon(href="/login" name="loginIcon")
-                        img.nav-icon-chico(src="/image/icons/login_icon.png" alt="login icon")
-            else
-                li
-                    a.loginIcon(href="/logout" name="loginIcon")
-                        img.nav-icon-chico(src="/image/icons/login_icon.png" alt="login icon")
-                li
-                    a(href="/") 
-                        img.nav-icon-logo(src="/image/icons/logo.png" alt="login icon")
-                li  
-                    a(href="#")
-                        img.nav-icon-chico(src="/image/icons/cart.png" alt="carrito icon")
+nav.navbar.navbar-dark.fixed-top(style="background-color: #111111;")
+    .container-fluid
+        a.navbar-brand(href="/") 
+            img.nav-icon-chico(src="/image/icons/logo.png" alt="login icon")
+        button.navbar-toggler(type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+        .offcanvas.offcanvas-end.text-bg-dark(tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel")
+            .offcanvas-header
+                h5.offcanvas-title#offcanvasDarkNavbarLabel 
+                    img.nav-icon-chico(src="/image/icons/logo.png" alt="login icon")
+                button.btn-close.btn-close-white(type="button" data-bs-dismiss="offcanvas" aria-label="Close")
+            .offcanvas-body
+                ul.navbar-nav.justify-content-end.flex-grow-1.pe-3
+                    if loggedin
+                        li.nav-item
+                            a.nav-link.active(aria-current="page" href="/login") Iniciar sesión
+                        li.nav-item
+                            a.nav-link(href="/register") Registro
+                        li.nav-item
+                            a.nav-link(href="#") Carrito
+                    else
+                        li.nav-item
+                            a.nav-link.active(aria-current="page" href="#") Carrito
+                        li.nav-item
+                            a.nav-link(href="/logout") Cerrar sesión
+
+
+
