@@ -30,9 +30,10 @@ CREATE TABLE usuarios(
 
 CREATE TABLE pagos(
     id_pago                 INT NOT NULL AUTO_INCREMENT,
-    nombre_en_tarjeta       varchar(30),
-    numero_en_tarjeta       INT(16),
-    vencimiento             DATETIME,
+    nombre_en_tarjeta       varchar(30) NOT NULL,
+    numero_en_tarjeta       INT(16) NOT NULL,
+    vencimiento             DATETIME NOT NULL,
+    direccion               varchar(100) NOT NULL,
     id_usuario				INT NOT NULL,
 
     PRIMARY KEY(id_pago),
@@ -42,10 +43,10 @@ CREATE TABLE pagos(
 
 CREATE TABLE pedidos (
     id_pedido   INT NOT NULL AUTO_INCREMENT,
-    fecha       DATE,
-    total       FLOAT,
-    id_usuario	INT,
-    id_pago		INT,	
+    fecha       DATE NOT NULL,
+    total       FLOAT NOT NULL,
+    id_usuario	INT NOT NULL,
+    id_pago		INT NOT NULL,	
 
     PRIMARY KEY(id_pedido),
     FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
@@ -56,7 +57,7 @@ CREATE TABLE pedidos (
 
 CREATE TABLE plataformas(
     id_plataforma   INT NOT NULL AUTO_INCREMENT,
-    nombre          varchar(20),
+    nombre          varchar(20) NOT NULL,
     PRIMARY KEY(id_plataforma)
 );
 
@@ -71,11 +72,11 @@ CREATE TABLE videojuegos(
 );
 
 CREATE TABLE videojuego_plataformas(
-    id_plataforma	INT,
-    id_videojuego	INT,
-    stock       	INT,
-    costo       	FLOAT,
-    precio      	FLOAT,
+    id_plataforma	INT NOT NULL,
+    id_videojuego	INT NOT NULL,
+    stock       	INT NOT NULL,
+    costo       	FLOAT NOT NULL,
+    precio      	FLOAT NOT NULL,
     
     PRIMARY KEY (id_plataforma, id_videojuego),
     FOREIGN KEY(id_plataforma) REFERENCES plataformas(id_plataforma),
@@ -83,9 +84,9 @@ CREATE TABLE videojuego_plataformas(
 );
 
 CREATE TABLE pedido_videojuegos(
-	id_pedido		INT,
-    id_videojuego	INT,
-    cantidad        INT(10),
+	id_pedido		INT NOT NULL,
+    id_videojuego	INT NOT NULL,
+    cantidad        INT(10) NOT NULL,
     FOREIGN KEY(id_pedido) REFERENCES pedidos(id_pedido),
     FOREIGN KEY(id_videojuego) REFERENCES videojuegos(id_videojuego)
 );
