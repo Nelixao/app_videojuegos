@@ -29,19 +29,8 @@ block content
                     span.carousel-control-next-icon(aria-hidden="true")
                     span.visually-hidden Next
 
-        div.content-opciones.opciones-inicio
-            section.section-opciones.opciones(id="opciones")
-                each juego in juegos 
-                    div.card
-                        div.card-img
-                            img(src=juego.imagen, alt=juego.titulo)
-                        div.card-info
-                            h4.card-title= juego.titulo
-                            img.estrellas(src="/image/icons/estrellas.png")
-                            h4.card-title= juego.videojuego_plataformas[0].plataforma.dataValues.nombre
-                            p.precio= `$ ${juego.videojuego_plataformas[0].precio}`
-                            a.button.agregar-carrito(data-id=juego.id_videojuego) Añadir al carrito
-                            a.button.mostrar-video(href=`/consola/${juego.videojuego_plataformas[0].plataforma.dataValues.nombre}/${juego.id_videojuego}`) Ver más
-
-        
+    if user
+        div.user-name-loggedin
+            h3=`Welcome ${user.nombre}`
+    
 

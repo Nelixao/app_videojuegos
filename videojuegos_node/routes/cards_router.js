@@ -1,6 +1,6 @@
 import express from "express";
 import { renderizarCardVideojuego, renderizarVideojuego } from "../controllers/cards/cardsController.js";
-import { isAuthenticated } from "../controllers/loginController.js";
+import { isAuthenticated } from "../middleware/middleware.js";
 
 const router_Cards = express.Router();
 

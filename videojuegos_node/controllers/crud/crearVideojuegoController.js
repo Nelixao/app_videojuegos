@@ -10,7 +10,6 @@ import path from 'path';
 const crearVideojuego = async (req, res) => {
   const plataformas = await consulta();
   res.render("admin/crearVideojuego", { info: plataformas });
-  console.log("Se renderizoooooooooooooooo");
 };
 
 const registrando = async (req, res) => {

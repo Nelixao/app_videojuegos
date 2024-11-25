@@ -1,9 +1,18 @@
 header
     div.nav-bar
         ul
+            if loggedin
+                li
+                    a.loginIcon(href="/login" name="loginIcon")
+                        img.nav-icon-chico(src="/image/icons/login_icon.png" alt="login icon")
+            else
+                li
+                    a.loginIcon(href="/logout" name="loginIcon")
+                        img.nav-icon-chico(src="/image/icons/login_icon.png" alt="login icon")
+            
             li
-                a(href="/login")
-                    img.nav-icon-chico(src="/image/icons/login_icon.png" alt="login icon")
-            li
-                a(href="") 
+                a(href="/") 
                     img.nav-icon-logo(src="/image/icons/logo.png" alt="login icon")
+            li  
+                a(href="#")
+                    img.nav-icon-chico(src="/image/icons/cart.png" alt="carrito icon")

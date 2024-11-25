@@ -184,3 +184,11 @@ VALUES
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Breath of the Wild'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 400.99, 510.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Doom'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 280.99, 390.99, 100),
 ((SELECT id_videojuego FROM videojuegos WHERE titulo = 'Among Us'), (SELECT id_plataforma FROM plataformas WHERE nombre = 'Nintendo'), 120.99, 230.99, 100);
+
+
+-- Usuarios por default --
+
+INSERT INTO usuarios (nombre, ap_paterno, correo, username, pass, token, confirmar, id_rol) VALUES
+('Hugo', 'Perez', 'perez.hugo.3010@gmail.com', 'hugopzz', '$2a$08$r1cIsiV0dsiJue3PHEsovOWxNiG9BnZjlAeiNFevecQ/rwcz65KBm', 'unmpkc5pdrg1idgps8t6', 1, 2),
+('Eder', 'Avalos', 'ederaj@gmail.com', 'ederaj', '$2a$08$17YzY2ecFsLvwgNyea8zrunndoo09hDHrbljeEuzwFyjrMU1oizjS', '8em5ppj1ej81idgpspjf', 1, 1);
+

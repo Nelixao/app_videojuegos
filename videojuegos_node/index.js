@@ -17,6 +17,7 @@ import db from "./config/db.js";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import router_Verificar from "./routes/router_Verificar.js";
+import { isAuthenticated } from "./middleware/middleware.js";
 
 // CONFIGURACIONES PAGINA
 

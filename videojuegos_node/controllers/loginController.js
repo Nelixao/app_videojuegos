@@ -3,11 +3,6 @@ import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import promisify from "util"
 
-function changeLogin(){
-    const loginIcon = document.querySelector(".loginIcon");
-    loginIcon.setAttribute("href", "/logout")     
-}
-
 
 const login = (req, res) => {
     res.render("formulario/login");
@@ -25,7 +20,6 @@ const registroLogin = async (req, res) => {
             
             const user = await Usuario.findOne({where:{username}})
             const isPassword = await bcryptjs.compare(password, user.pass)
-            var user_token = user.token;
             
             
             if(!user || !isPassword){
@@ -42,8 +36,11 @@ const registroLogin = async (req, res) => {
             // Inicio de sesion validado
             else{
 
-                const id_usuario = user.id_usuario;
-                const token = jwt.sign({id_usuario:id_usuario}, process.env.JWT_SECRETO,{ 
+
+                const user_token = user.token;
+                const id_rol = user.id_rol;
+                
+                const token = jwt.sign({token:user_token, id_rol:id_rol}, process.env.JWT_SECRETO,{ 
                     expiresIn: process.env.JWT_TIEMPO_EXPIRA
                 })
 
@@ -55,12 +52,12 @@ const registroLogin = async (req, res) => {
                 }
                 res.cookie("jwt", token, cookieOptions)
 
+                if(user.id_rol == 2){
+                    res.redirect("/admin/crud")
+                }else{
+                    res.redirect("/");
+                }
 
-                res.render("credenciales/confirmacionlogin", {
-                    pagina: `Bienvenido ${user.nombre}`,
-                });
-
-                changeLogin()
 
             }
 
@@ -77,33 +74,6 @@ const registroLogin = async (req, res) => {
     }
 }
 
-const isAuthenticated = async(req, res, next) =>{
-    if (req.cookies.jwt){
-        try{
-            const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO);
-            const idTokenUser = decodificada.id;             
-            const user = await Usuario.findOne({where:{idTokenUser}})
-
-            console.log(decodificada);
-            
-
-            if(!user){
-                return next()
-            }
-            req.user = user.username;
-            return next()
-
-        }catch(error){
-            console.log(error);
-            return next()
-        }
-
-    }else{
-        res.redirect("/login"); 
-        next()
-    }
-}
-
 const verificarCuenta = async (req, res) => {
     const {token} = req.params;
 
@@ -112,10 +82,8 @@ const verificarCuenta = async (req, res) => {
 
     if(!usuario){
         res.render("formulario/login", {
-            
             pagina: "No has confirmado tu cuenta",
-        
-        });
+        }); 
     }else{
         usuario.token=null;
         usuario.confirmar=true;
@@ -124,9 +92,7 @@ const verificarCuenta = async (req, res) => {
         res.render("formulario/login", {
             pagina: "Su cuenta se confirmo exitosamente",
         });
-    }
-
-    
+    }    
 
 }
 
@@ -135,6 +101,5 @@ const verificarCuenta = async (req, res) => {
 export{
     login,
     registroLogin,
-    isAuthenticated,
     verificarCuenta
 };
