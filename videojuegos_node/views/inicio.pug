@@ -18,5 +18,8 @@ block content
                 span.carousel-control-next-icon(aria-hidden="true")
                 span.visually-hidden Next
 
+    if user
+        div.user-name-loggedin
+            h3=`Welcome ${user.nombre}`
     
 
